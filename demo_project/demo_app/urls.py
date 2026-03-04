@@ -1,6 +1,5 @@
-from django_distill import distill_path
-
 from demo_app.views import COMPONENTS, ComponentIndexView, ComponentView, IndexView
+from django_distill import distill_path
 
 
 def no_params():

@@ -16,3 +16,7 @@ build:
 # Remove built static files
 clean:
     rm -rf demo_project/dist demo_project/staticfiles
+
+# Run CI checks locally using act
+ci *args:
+    act push {{ args }}
