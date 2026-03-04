@@ -1,0 +1,40 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A step indicator updates users on their progress through a multi-step process.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-step_indicator current_step="3" total_steps="5" segment_name="Household information">
+    <c-step_indicator.step_item name="Personal information" segment_state="complete" />
+    <c-step_indicator.step_item name="Employment history" segment_state="complete" />
+    <c-step_indicator.step_item name="Household information" segment_state="current" />
+    <c-step_indicator.step_item name="Supporting documents" segment_state="incomplete" />
+    <c-step_indicator.step_item name="Review and submit" segment_state="incomplete" />
+</c-step_indicator>
+
+<h2 class="font-heading-xl margin-top-4">Centered</h2>
+<c-step_indicator indicator_type="center" current_step="2" total_steps="4" segment_name="Verify identity">
+    <c-step_indicator.step_item name="Create account" segment_state="complete" />
+    <c-step_indicator.step_item name="Verify identity" segment_state="current" />
+    <c-step_indicator.step_item name="Review benefits" segment_state="incomplete" />
+    <c-step_indicator.step_item name="Confirm enrollment" segment_state="incomplete" />
+</c-step_indicator>
+
+<h2 class="font-heading-xl margin-top-4">Counters</h2>
+<c-step_indicator indicator_type="counters" current_step="4" total_steps="5" segment_name="Budget justification">
+    <c-step_indicator.step_item name="Grant overview" segment_state="complete" />
+    <c-step_indicator.step_item name="Project narrative" segment_state="complete" />
+    <c-step_indicator.step_item name="Eligibility criteria" segment_state="complete" />
+    <c-step_indicator.step_item name="Budget justification" segment_state="current" />
+    <c-step_indicator.step_item name="Submission review" segment_state="incomplete" />
+</c-step_indicator>
+
+<h2 class="font-heading-xl margin-top-4">Small counters</h2>
+<c-step_indicator indicator_type="counters-sm" current_step="1" total_steps="4" segment_name="Applicant details">
+    <c-step_indicator.step_item name="Applicant details" segment_state="current" />
+    <c-step_indicator.step_item name="Service selection" segment_state="incomplete" />
+    <c-step_indicator.step_item name="Schedule appointment" segment_state="incomplete" />
+    <c-step_indicator.step_item name="Confirmation" segment_state="incomplete" />
+</c-step_indicator>
+{% endblock %}

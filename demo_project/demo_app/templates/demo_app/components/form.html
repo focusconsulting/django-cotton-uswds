@@ -1,0 +1,40 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A form allows users to enter and submit information. The form component provides a consistent container with appropriate styling.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default (large)</h2>
+<c-form action="#" method="post">
+  <c-form_group>
+    <c-label id="form-name" label="Full name" required="true" />
+    <c-text_input id="form-name" name="full_name" required="required" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="form-email" label="Email address" required="true" />
+    <c-text_input id="form-email" name="email" type="email" required="required" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="form-phone" label="Phone number" hint="10-digit U.S. phone number" />
+    <c-text_input id="form-phone" name="phone" type="tel" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="form-message" label="Message" />
+    <c-textarea id="form-message" name="message" />
+  </c-form_group>
+  <c-button type="submit">Submit</c-button>
+</c-form>
+
+<h2 class="font-heading-xl margin-top-4">Custom class</h2>
+<c-form class="usa-form" action="#" method="post">
+  <c-form_group>
+    <c-label id="form-sm-name" label="Name" />
+    <c-text_input id="form-sm-name" name="name_small" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="form-sm-zip" label="ZIP code" />
+    <c-text_input id="form-sm-zip" name="zip" width="sm" />
+  </c-form_group>
+  <c-button type="submit">Search</c-button>
+</c-form>
+{% endblock %}

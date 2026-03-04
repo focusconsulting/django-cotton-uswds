@@ -1,0 +1,37 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A currency input allows users to enter a dollar amount, with a prefix indicating the currency.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group>
+  <c-label id="currency-default" label="Annual income" hint="Enter your gross annual income before taxes" />
+  <c-currency_input id="currency-default" name="annual_income" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With value</h2>
+<c-form_group>
+  <c-label id="currency-value" label="Grant amount requested" />
+  <c-currency_input id="currency-value" name="grant_amount" value="25000.00" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With error</h2>
+<c-form_group error="true">
+  <c-label id="currency-error" label="Monthly rent or mortgage" error="true" />
+  <span class="usa-error-message" role="alert">Enter a valid dollar amount</span>
+  <c-currency_input id="currency-error" name="monthly_rent" error="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="currency-disabled" label="Previous year contribution" />
+  <c-currency_input id="currency-disabled" name="previous_contribution" value="5000.00" disabled="disabled" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Required</h2>
+<c-form_group>
+  <c-label id="currency-required" label="Total budget" required="true" />
+  <c-currency_input id="currency-required" name="total_budget" required="required" />
+</c-form_group>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A textarea allows users to enter multiple lines of text, such as comments or detailed descriptions.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group>
+  <c-label id="textarea-default" label="Additional comments" />
+  <c-textarea id="textarea-default" name="comments" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With value</h2>
+<c-form_group>
+  <c-label id="textarea-value" label="Project description" />
+  <c-textarea id="textarea-value" name="description" value="This project aims to modernize the agency's public-facing website to improve accessibility and comply with Section 508 standards." />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With hint text</h2>
+<c-form_group>
+  <c-label id="textarea-hint" label="Reason for appeal" hint="Provide specific details about why you are appealing this decision" />
+  <c-textarea id="textarea-hint" name="appeal_reason" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Custom rows</h2>
+<c-form_group>
+  <c-label id="textarea-rows" label="Brief summary" hint="Keep your response to 2-3 sentences" />
+  <c-textarea id="textarea-rows" name="summary" rows="3" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Error state</h2>
+<c-form_group error="true">
+  <c-label id="textarea-error" label="Justification" error="true" />
+  <c-error_message id="textarea-error" error="Provide a justification of at least 50 characters" />
+  <c-textarea id="textarea-error" name="justification" error="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Success state</h2>
+<c-form_group>
+  <c-label id="textarea-success" label="Response received" />
+  <c-textarea id="textarea-success" name="response" value="Your application has been reviewed and approved." success="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="textarea-disabled" label="Previous submission" />
+  <c-textarea id="textarea-disabled" name="previous" value="This submission was processed on January 15, 2024 and is no longer editable." disabled="disabled" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Required</h2>
+<c-form_group>
+  <c-label id="textarea-required" label="Statement of purpose" required="true" />
+  <c-textarea id="textarea-required" name="statement" required="required" />
+</c-form_group>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">File input allows users to attach one or more files to a form.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group>
+  <c-label id="file-input-default" label="Upload your document" hint="Select a PDF, DOC, or DOCX file" />
+  <c-file_input selection_type="default" name="document" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Accept specific file types</h2>
+<c-form_group>
+  <c-label id="file-input-images" label="Upload a photo ID" hint="Select a JPG or PNG file" />
+  <c-file_input selection_type="images" name="photo_id" accept=".jpg,.jpeg,.png" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Multiple files</h2>
+<c-form_group>
+  <c-label id="file-input-multiple" label="Upload supporting documents" hint="You may upload multiple files at once" />
+  <c-file_input selection_type="multiple" name="supporting_docs" multiple="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Required</h2>
+<c-form_group>
+  <c-label id="file-input-required" label="Upload signed application" hint="A signed copy of your application is required" required="true" />
+  <c-file_input selection_type="required" name="signed_application" accept=".pdf" required="required" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="file-input-disabled" label="Upload transcript" hint="File upload is currently unavailable" />
+  <c-file_input selection_type="disabled" name="transcript" disabled="disabled" />
+</c-form_group>
+{% endblock %}

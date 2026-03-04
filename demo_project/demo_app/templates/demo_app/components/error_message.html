@@ -1,0 +1,34 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">Error messages inform the user when a form field requires their attention and provide guidance on how to correct an issue.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group error="true">
+  <c-label id="error-default" label="Social Security number" error="true" />
+  <c-error_message id="error-default" error="Enter a valid Social Security number in the format XXX-XX-XXXX" />
+  <c-text_input id="error-default" name="ssn" error="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With text input</h2>
+<c-form_group error="true">
+  <c-label id="error-email" label="Email address" error="true" />
+  <c-error_message id="error-email" error="Enter a valid email address, such as name@agency.gov" />
+  <c-text_input id="error-email" name="email" type="email" value="invalid-email" error="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With textarea</h2>
+<c-form_group error="true">
+  <c-label id="error-textarea" label="Reason for appeal" error="true" />
+  <c-error_message id="error-textarea" error="Provide a reason for your appeal. This field cannot be blank." />
+  <c-textarea id="error-textarea" name="appeal_reason" error="true" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Required field missing</h2>
+<c-form_group error="true">
+  <c-label id="error-required" label="First name" error="true" required="true" />
+  <c-error_message id="error-required" error="This field is required" />
+  <c-text_input id="error-required" name="first_name" error="true" />
+</c-form_group>
+{% endblock %}

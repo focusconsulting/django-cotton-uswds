@@ -1,0 +1,17 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A tooltip is a short descriptive message that appears when a user hovers or focuses on an element.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-tooltip text="Submit application" tooltip_text="Click to submit your completed application for review" />
+
+<h2 class="font-heading-xl margin-top-4">Positions</h2>
+<div class="display-flex flex-row flex-gap-2 flex-wrap padding-top-4 padding-bottom-4">
+    <c-tooltip text="Top" tooltip_text="Tooltip on top" position="top" />
+    <c-tooltip text="Bottom" tooltip_text="Tooltip on bottom" position="bottom" />
+    <c-tooltip text="Left" tooltip_text="Tooltip on left" position="left" />
+    <c-tooltip text="Right" tooltip_text="Tooltip on right" position="right" />
+</div>
+{% endblock %}

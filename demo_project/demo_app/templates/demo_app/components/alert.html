@@ -1,0 +1,54 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">An alert keeps users informed of important and sometimes time-sensitive changes.</p>
+
+<h2 class="font-heading-xl margin-top-4">Informative (default)</h2>
+<c-alert heading="Informative status">
+    You have been selected for a security review. Please verify your identity within 30 days to maintain access to your account.
+</c-alert>
+
+<h2 class="font-heading-xl margin-top-4">Success</h2>
+<c-alert type="success" heading="Application submitted">
+    Your application has been received and is being processed. You will receive a confirmation email within 2 business days.
+</c-alert>
+
+<h2 class="font-heading-xl margin-top-4">Warning</h2>
+<c-alert type="warning" heading="Upcoming system maintenance">
+    The portal will be undergoing scheduled maintenance on Saturday, March 15 from 12:00 a.m. to 6:00 a.m. ET. Some services may be temporarily unavailable.
+</c-alert>
+
+<h2 class="font-heading-xl margin-top-4">Error</h2>
+<c-alert type="error" heading="Your submission contains errors">
+    Please correct the following issues before resubmitting: your Social Security number is invalid, and your date of birth is missing.
+</c-alert>
+
+<h2 class="font-heading-xl margin-top-4">Slim</h2>
+<c-alert type="info" :slim="True">
+    Your session will expire in 5 minutes. Please save your work.
+</c-alert>
+
+<div class="margin-top-2">
+    <c-alert type="success" :slim="True">
+        Your password has been successfully updated.
+    </c-alert>
+</div>
+
+<div class="margin-top-2">
+    <c-alert type="warning" :slim="True">
+        You are approaching your storage limit. Consider archiving older documents.
+    </c-alert>
+</div>
+
+<div class="margin-top-2">
+    <c-alert type="error" :slim="True">
+        Unable to connect to the server. Please try again later.
+    </c-alert>
+</div>
+
+<h2 class="font-heading-xl margin-top-4">No icon</h2>
+<c-alert type="info" extra_classes="usa-alert--no-icon" heading="Informational notice">
+    The 2026 federal tax filing deadline has been extended to April 18. Visit IRS.gov for more information.
+</c-alert>
+{% endblock %}

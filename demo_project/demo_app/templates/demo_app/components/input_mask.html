@@ -1,0 +1,74 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">An input mask provides a visual guide to help users enter data in the correct format, such as phone numbers or Social Security numbers.</p>
+
+<h2 class="font-heading-xl margin-top-4">Phone number</h2>
+<c-form_group>
+  <c-label id="mask-phone" label="Phone number" hint="10-digit U.S. phone number" />
+  <c-input_mask
+    id="mask-phone"
+    name="phone"
+    type="tel"
+    placeholder="___-___-____"
+    pattern="\d{3}-\d{3}-\d{4}"
+    charset="___-___-____"
+    inputmode="numeric"
+  />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Social Security number</h2>
+<c-form_group>
+  <c-label id="mask-ssn" label="Social Security number" hint="For example, 123-45-6789" />
+  <c-input_mask
+    id="mask-ssn"
+    name="ssn"
+    placeholder="___-__-____"
+    pattern="\d{3}-\d{2}-\d{4}"
+    charset="___-__-____"
+    inputmode="numeric"
+  />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">ZIP code</h2>
+<c-form_group>
+  <c-label id="mask-zip" label="ZIP code" hint="5-digit ZIP code" />
+  <c-input_mask
+    id="mask-zip"
+    name="zip"
+    placeholder="_____"
+    pattern="\d{5}"
+    charset="_____"
+    inputmode="numeric"
+    width="sm"
+  />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With error</h2>
+<c-form_group error="true">
+  <c-label id="mask-error" label="Taxpayer Identification Number" error="true" hint="For example, 12-3456789" />
+  <c-error_message id="mask-error" error="Enter a valid Taxpayer Identification Number" />
+  <c-input_mask
+    id="mask-error"
+    name="tin"
+    placeholder="__-_______"
+    pattern="\d{2}-\d{7}"
+    charset="__-_______"
+    inputmode="numeric"
+    error="true"
+  />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="mask-disabled" label="Case number" />
+  <c-input_mask
+    id="mask-disabled"
+    name="case_number"
+    placeholder="____-____-____"
+    value="1234-5678-9012"
+    disabled="disabled"
+  />
+</c-form_group>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">Search allows users to search for specific content within a website or application.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-search id="search-default" />
+
+<h2 class="font-heading-xl margin-top-4">Big</h2>
+<c-search id="search-big" search_type="big" />
+
+<h2 class="font-heading-xl margin-top-4">Small</h2>
+<c-search id="search-small" search_type="small" />
+{% endblock %}
