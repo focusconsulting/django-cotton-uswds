@@ -22,12 +22,12 @@ INSTALLED_APPS = [
 
 ## Usage
 
-Components follow the `<c-uswds.component>` naming convention:
+Components follow the `<c-component>` naming convention:
 
 ```html
-<c-uswds.alert type="info" heading="Informative status">
+<c-alert type="info" heading="Informative status">
     This is an informative alert.
-</c-uswds.alert>
+</c-alert>
 ```
 
 Attributes pass through to the underlying USWDS markup, so you can use the same options documented on the [USWDS component pages](https://designsystem.digital.gov/components/overview/).
