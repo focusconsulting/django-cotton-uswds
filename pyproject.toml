@@ -25,5 +25,8 @@ dependencies = [
     "django-cotton>=1.2.1",
 ]
 
+[project.optional-dependencies]
+demo = ["django-distill>=3.0.0"]
+
 [tool.hatch.build.targets.wheel]
 packages = ["django_cotton_uswds"]

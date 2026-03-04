@@ -1,0 +1,17 @@
+{% extends "demo_app/base.html" %}
+
+{% block title %}django-cotton-uswds — Home{% endblock %}
+
+{% block content %}
+<div class="grid-container margin-top-6">
+    <div class="grid-row">
+        <div class="grid-col-12">
+            <h1 class="font-heading-2xl">django-cotton-uswds</h1>
+            <p class="usa-intro">
+                USWDS components for Django Cotton.
+            </p>
+            <a href="{% url 'demo' %}" class="usa-button">View Component Demo</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

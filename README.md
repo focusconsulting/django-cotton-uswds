@@ -42,6 +42,21 @@ See the [USWDS getting started guide](https://designsystem.digital.gov/documenta
 
 This project is in early development. Components are being added incrementally. See the [USWDS components page](https://designsystem.digital.gov/components/overview/) for reference on what's planned.
 
+## Demo
+
+A demo project is included to showcase components. Requires [just](https://github.com/casey/just) and [uv](https://github.com/astral-sh/uv).
+
+```bash
+# Install the package with demo dependencies
+just install
+
+# Run the development server at http://127.0.0.1:8000/
+just demo
+
+# Build a static site into demo_project/dist/
+just build
+```
+
 ## Requirements
 
 - Python 3.10+
