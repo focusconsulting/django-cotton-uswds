@@ -30,12 +30,19 @@ jobs:
         run: uv run python manage.py collectstatic --noinput
         env:
           STATIC_URL: /django-cotton-uswds/static/
+          URL_PREFIX: /django-cotton-uswds
 
       - name: Build static site
         working-directory: demo_project
         run: uv run python manage.py distill-local dist --force
         env:
           STATIC_URL: /django-cotton-uswds/static/
+          URL_PREFIX: /django-cotton-uswds
+
+      - name: Fix static paths for GitHub Pages
+        run: |
+          mv demo_project/dist/django-cotton-uswds/static demo_project/dist/static
+          rm -rf demo_project/dist/django-cotton-uswds
 
       - uses: actions/configure-pages@v5
 

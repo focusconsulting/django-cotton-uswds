@@ -18,6 +18,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "demo_app.middleware.URLPrefixMiddleware",
     "django.middleware.common.CommonMiddleware",
 ]
 
@@ -46,6 +47,8 @@ TEMPLATES = [
 WSGI_APPLICATION = "wsgi.application"
 
 DATABASES = {}
+
+URL_PREFIX = os.environ.get("URL_PREFIX", "")
 
 STATIC_URL = os.environ.get("STATIC_URL", "static/")
 STATIC_ROOT = BASE_DIR / "staticfiles"

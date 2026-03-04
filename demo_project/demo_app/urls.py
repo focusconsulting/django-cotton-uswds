@@ -1,4 +1,4 @@
-from demo_app.views import COMPONENTS, ComponentIndexView, ComponentView, IndexView
+from demo_app.views import COMPONENTS, ComponentIndexView, ComponentView
 from django_distill import distill_path
 
 
@@ -12,12 +12,8 @@ def all_component_slugs():
 
 
 urlpatterns = [
-    distill_path("", IndexView.as_view(), name="index", distill_func=no_params),
     distill_path(
-        "components/",
-        ComponentIndexView.as_view(),
-        name="component-index",
-        distill_func=no_params,
+        "", ComponentIndexView.as_view(), name="index", distill_func=no_params
     ),
     distill_path(
         "components/<slug:slug>/",
