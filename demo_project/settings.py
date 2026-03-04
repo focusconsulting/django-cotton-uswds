@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -46,7 +47,7 @@ WSGI_APPLICATION = "wsgi.application"
 
 DATABASES = {}
 
-STATIC_URL = "static/"
+STATIC_URL = os.environ.get("STATIC_URL", "static/")
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DISTILL_DIR = BASE_DIR / "dist"
