@@ -7,10 +7,12 @@ Use the U.S. Web Design System in your Django projects with a clean, declarative
 ## Installation
 
 ```bash
-pip install django-cotton-uswds
+git clone https://github.com/iversondiles/django-cotton-uswds.git
+cd django-cotton-uswds
+pip install -e .
 ```
 
-Add both `django_cotton` and `django_cotton_uswds` to your `INSTALLED_APPS`:
+Then add both `django_cotton` and `django_cotton_uswds` to your `INSTALLED_APPS`:
 
 ```python
 INSTALLED_APPS = [
