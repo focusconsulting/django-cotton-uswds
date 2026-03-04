@@ -1,0 +1,29 @@
+<c-vars
+    error=""
+    success=""
+    disabled=""
+    readonly=""
+    required=""
+    width=""
+    aria_describedby=""
+    value=""
+    placeholder=""
+    pattern=""
+    inputmode=""
+    charset=""
+    class="usa-input usa-masked"
+/>
+
+<input
+  class="{{ class }}{% if width %} usa-input--{{ width }}{% endif %}{% if error %} usa-input--error{% endif %}{% if success %} usa-input--success{% endif %}"
+  {{ attrs }}
+  {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+  {% if pattern %}pattern="{{ pattern }}"{% endif %}
+  {% if inputmode %}inputmode="{{ inputmode }}"{% endif %}
+  {% if charset %}data-charset="{{ charset }}"{% endif %}
+  {% if aria_describedby %}aria-describedby="{{ aria_describedby }}"{% endif %}
+  {% if disabled %}disabled{% endif %}
+  {% if readonly %}readonly{% endif %}
+  {% if required %}required{% endif %}
+  {% if value != None %}value="{{ value }}"{% endif %}
+/>

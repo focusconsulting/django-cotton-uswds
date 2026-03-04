@@ -168,6 +168,36 @@
         </c-card>
     </c-card.group>
 
+    {# ── Input Mask ── #}
+    <div class="grid-row margin-top-6">
+        <div class="grid-col-12">
+            <h2 class="font-heading-xl">Input Mask</h2>
+
+            <c-label for="tel-mask">Telephone number</c-label>
+            <div class="usa-hint" id="tel-hint">Format: 123-456-7890</div>
+            <c-input_mask
+                id="tel-mask"
+                name="tel-mask"
+                type="tel"
+                inputmode="numeric"
+                placeholder="___-___-____"
+                pattern="\d{3}-\d{3}-\d{4}"
+                aria_describedby="tel-hint"
+            />
+
+            <c-label for="ssn-mask" class="margin-top-2">Social Security Number</c-label>
+            <div class="usa-hint" id="ssn-hint">Format: 123 45 6789</div>
+            <c-input_mask
+                id="ssn-mask"
+                name="ssn-mask"
+                inputmode="numeric"
+                placeholder="___ __ ____"
+                pattern="^(?!(000|666|9))\d{3} (?!00)\d{2} (?!0000)\d{4}$"
+                aria_describedby="ssn-hint"
+            />
+        </div>
+    </div>
+
     <div class="margin-top-6 margin-bottom-6">
         <a href="{% url 'index' %}" class="usa-button usa-button--outline">Back to Home</a>
     </div>
