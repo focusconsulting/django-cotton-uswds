@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+django_cotton_uswds/_version.py
 
 # Virtual environments
 .venv
