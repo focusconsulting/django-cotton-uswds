@@ -1,0 +1,36 @@
+{% for error in errors %}
+<c-alert type="error">{{ error }}</c-alert>
+{% endfor %}
+{% for field, field_errors in fields %}
+{% if field.field.widget.input_type == "checkbox" %}
+<c-form_group error="{% if field.errors %}true{% endif %}">
+  <c-error_message
+    id="{{ field.id_for_label }}"
+    error="{% for e in field.errors %}{{ e }} {% endfor %}"
+  />
+  <c-checkbox
+    id="{{ field.id_for_label }}"
+    name="{{ field.html_name }}"
+    label="{{ field.label }}"
+    checked="{% if field.value %}checked{% endif %}"
+    required="{% if field.field.required %}true{% endif %}"
+  />
+</c-form_group>
+{% else %}
+<c-form_group error="{% if field.errors %}true{% endif %}">
+  <c-label
+    id="{{ field.id_for_label }}"
+    label="{{ field.label }}"
+    hint="{{ field.help_text }}"
+    required="{% if field.field.required %}true{% endif %}"
+    error="{% if field.errors %}true{% endif %}"
+  />
+  <c-error_message
+    id="{{ field.id_for_label }}"
+    error="{% for e in field.errors %}{{ e }} {% endfor %}"
+  />
+  {{ field }}
+</c-form_group>
+{% endif %}
+{% endfor %}
+{% for field in hidden_fields %}{{ field }}{% endfor %}
