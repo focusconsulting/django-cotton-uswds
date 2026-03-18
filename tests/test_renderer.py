@@ -181,7 +181,6 @@ class TestCharFieldRendersUSWDSStructure:
         assert "usa-file-input" in html
         assert "disabled" in html
 
-
     def test_choice_field_preserves_selected_value(self):
         class SelectForm(forms.Form):
             color = forms.ChoiceField(
@@ -198,6 +197,7 @@ class TestCharFieldRendersUSWDSStructure:
 
         assert 'value="g" selected' in html
         assert 'value="r" selected' not in html
+
 
 class TestFormRoundTrip:
     def test_submitted_form_preserves_values_and_shows_errors(self):
