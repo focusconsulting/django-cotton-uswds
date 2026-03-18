@@ -2,7 +2,17 @@
 <c-alert type="error">{{ error }}</c-alert>
 {% endfor %}
 {% for field, field_errors in fields %}
-{% if field.field.widget.input_type == "checkbox" %}
+{% if field.field.widget.template_name == "django/forms/widgets/radio.html" or field.field.widget.template_name == "django/forms/widgets/checkbox_select.html" %}
+<c-form_group error="{% if field.errors %}true{% endif %}">
+  <c-error_message
+    id="{{ field.id_for_label }}"
+    error="{% for e in field.errors %}{{ e }} {% endfor %}"
+  />
+  <c-fieldset legend="{{ field.label }}">
+    {{ field }}
+  </c-fieldset>
+</c-form_group>
+{% elif field.field.widget.input_type == "checkbox" %}
 <c-form_group error="{% if field.errors %}true{% endif %}">
   <c-error_message
     id="{{ field.id_for_label }}"
