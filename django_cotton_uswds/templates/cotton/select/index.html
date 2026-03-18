@@ -16,4 +16,5 @@
     {% for option in options %}
         <option value="{{ option.value }}" {% if value == option.value %}selected{% endif %}>{{ option.display }}</option>
     {% endfor %}
+    {{ slot }}
 </select>
