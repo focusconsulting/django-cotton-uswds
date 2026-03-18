@@ -86,6 +86,18 @@ class TestCharFieldRendersUSWDSStructure:
 
         assert "usa-checkbox" in html
 
+    def test_boolean_field_help_text_renders_as_description(self):
+        class CheckboxHelpForm(forms.Form):
+            agree = forms.BooleanField(
+                label="I agree",
+                help_text="You must agree to continue",
+            )
+
+        form = CheckboxHelpForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "You must agree to continue" in html
+
     def test_textarea_widget_renders_as_textarea(self):
         class TextareaForm(forms.Form):
             bio = forms.CharField(label="Biography", widget=forms.Textarea)
@@ -115,6 +127,18 @@ class TestFormRoundTrip:
         # Errors shown
         assert "usa-error-message" in html
         assert "usa-form-group--error" in html
+
+
+class TestGlobalFormRendererSetting:
+    def test_form_renderer_setting_activates_uswds_rendering(self, settings):
+        settings.FORM_RENDERER = "django_cotton_uswds.renderer.USWDSFormRenderer"
+
+        form = SimpleForm()
+        html = form.render()
+
+        assert "usa-form-group" in html
+        assert "usa-label" in html
+        assert "usa-input" in html
 
 
 class TestUSWDSFormMixin:

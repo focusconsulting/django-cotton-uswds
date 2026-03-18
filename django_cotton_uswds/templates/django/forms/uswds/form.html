@@ -12,6 +12,7 @@
     id="{{ field.id_for_label }}"
     name="{{ field.html_name }}"
     label="{{ field.label }}"
+    label_description="{{ field.help_text }}"
     checked="{% if field.value %}checked{% endif %}"
     required="{% if field.field.required %}true{% endif %}"
   />
