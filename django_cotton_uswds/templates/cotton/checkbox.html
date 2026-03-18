@@ -26,6 +26,9 @@
   />
   <label class="usa-checkbox__label" for="{{ id }}">
     {{ label|safe }}
+    {% if required %}
+      <c-label.required-marker />
+    {% endif %}
     {% if label_description %}
       <span class="usa-checkbox__label-description">{{ label_description|safe }}</span>
     {% endif %}

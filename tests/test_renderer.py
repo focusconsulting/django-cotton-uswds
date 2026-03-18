@@ -86,6 +86,15 @@ class TestCharFieldRendersUSWDSStructure:
 
         assert "usa-checkbox" in html
 
+    def test_required_boolean_field_shows_required_marker(self):
+        class RequiredCheckboxForm(forms.Form):
+            agree = forms.BooleanField(label="I agree")
+
+        form = RequiredCheckboxForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-hint--required" in html
+
     def test_boolean_field_help_text_renders_as_description(self):
         class CheckboxHelpForm(forms.Form):
             agree = forms.BooleanField(
