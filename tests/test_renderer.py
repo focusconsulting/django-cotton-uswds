@@ -181,6 +181,35 @@ class TestCharFieldRendersUSWDSStructure:
         assert "usa-file-input" in html
         assert "disabled" in html
 
+    def test_grouped_choices_render_optgroups(self):
+        class GroupedSelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Color",
+                choices=[
+                    ("Warm", [("r", "Red"), ("o", "Orange")]),
+                    ("Cool", [("b", "Blue"), ("g", "Green")]),
+                ],
+            )
+
+        form = GroupedSelectForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert '<optgroup label="Warm">' in html
+        assert '<optgroup label="Cool">' in html
+        assert "</optgroup>" in html
+
+    def test_file_field_passes_through_accept_attribute(self):
+        class AcceptFileForm(forms.Form):
+            document = forms.FileField(
+                label="Upload",
+                widget=forms.ClearableFileInput(attrs={"accept": ".pdf,.doc"}),
+            )
+
+        form = AcceptFileForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert 'accept=".pdf,.doc"' in html
+
     def test_choice_field_preserves_selected_value(self):
         class SelectForm(forms.Form):
             color = forms.ChoiceField(
