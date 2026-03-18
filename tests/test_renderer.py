@@ -116,6 +116,88 @@ class TestCharFieldRendersUSWDSStructure:
 
         assert "usa-textarea" in html
 
+    def test_choice_field_renders_as_uswds_select(self):
+        class SelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+            )
+
+        form = SelectForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-select" in html
+        assert "<option" in html
+        assert 'value="r"' in html
+        assert "Red" in html
+        assert 'value="g"' in html
+        assert 'value="b"' in html
+
+    def test_choice_field_passes_through_attributes(self):
+        class SelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Color",
+                choices=[("r", "Red")],
+            )
+
+        form = SelectForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert 'name="color"' in html
+        assert 'id="id_color"' in html
+        assert "required" in html
+
+    def test_disabled_choice_field_renders_disabled(self):
+        class DisabledSelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Color",
+                choices=[("r", "Red")],
+                disabled=True,
+            )
+
+        form = DisabledSelectForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "disabled" in html
+
+    def test_file_field_renders_as_uswds_file_input(self):
+        class FileForm(forms.Form):
+            document = forms.FileField(label="Upload document")
+
+        form = FileForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-file-input" in html
+        assert 'name="document"' in html
+        assert 'id="id_document"' in html
+
+    def test_disabled_file_field_renders_disabled(self):
+        class DisabledFileForm(forms.Form):
+            document = forms.FileField(label="Upload", disabled=True)
+
+        form = DisabledFileForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-file-input" in html
+        assert "disabled" in html
+
+
+    def test_choice_field_preserves_selected_value(self):
+        class SelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+            )
+
+        form = SelectForm(
+            data={"color": "g"},
+            renderer=USWDSFormRenderer(),
+        )
+        form.is_valid()
+        html = form.render()
+
+        assert 'value="g" selected' in html
+        assert 'value="r" selected' not in html
 
 class TestFormRoundTrip:
     def test_submitted_form_preserves_values_and_shows_errors(self):

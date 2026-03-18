@@ -1,4 +1,5 @@
 <c-vars
+    id=""
     selection_type=""
     name=""
     accept=""
@@ -8,11 +9,11 @@
 />
 
 <input
-  id="file-input-{{ selection_type }}"
+  id="{% if id %}{{ id }}{% else %}file-input-{{ selection_type }}{% endif %}"
   class="usa-file-input"
   type="file"
   name="{{ name }}"
-  aria-describedby="file-input-{{ selection_type }}-hint"
+  aria-describedby="{% if id %}{{ id }}-hint{% else %}file-input-{{ selection_type }}-hint{% endif %}"
   accept="{{ accept }}"
   multiple="{$ if multiple == 'true' $}multiple{$ endif $}"
   {% if required %}required{% endif %}

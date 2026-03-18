@@ -1,0 +1,8 @@
+<c-select
+    name="{{ widget.name }}"
+    id="{{ widget.attrs.id }}"
+    :disabled="{{ widget.attrs.disabled }}"
+    :required="{{ widget.required }}"
+>{% for group_name, group_choices, group_index in widget.optgroups %}{% for option in group_choices %}
+    <option value="{{ option.value|stringformat:'s' }}"{% if option.selected %} selected{% endif %}>{{ option.label }}</option>
+{% endfor %}{% endfor %}</c-select>
