@@ -114,6 +114,10 @@ just build
 - Django 4.2+
 - django-cotton 1.2.1+
 
+## Domain Language
+
+See [UBIQUITOUS_LANGUAGE.md](UBIQUITOUS_LANGUAGE.md) for a glossary of canonical domain terms used in this project.
+
 ## License
 
 MIT
