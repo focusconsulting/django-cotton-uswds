@@ -434,3 +434,92 @@ class TestUSWDSFormMixin:
         assert "usa-form-group" in html
         assert "usa-label" in html
         assert "usa-input" in html
+
+
+class TestUSWDSAttributePassthrough:
+    def test_text_input_width_attr_produces_width_class(self):
+        class WidthForm(forms.Form):
+            name = forms.CharField(
+                label="Name",
+                widget=forms.TextInput(attrs={"width": "md"}),
+            )
+
+        form = WidthForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-input--md" in html
+
+    def test_textarea_uswds_attr_passes_through(self):
+        class TextareaForm(forms.Form):
+            bio = forms.CharField(
+                label="Bio",
+                widget=forms.Textarea(attrs={"data-uswds": "true"}),
+            )
+
+        form = TextareaForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert 'data-uswds="true"' in html
+
+    def test_select_uswds_attr_passes_through(self):
+        class SelectForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Color",
+                choices=[("r", "Red"), ("g", "Green")],
+                widget=forms.Select(attrs={"data-uswds": "true"}),
+            )
+
+        form = SelectForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert 'data-uswds="true"' in html
+
+    def test_file_input_uswds_attr_passes_through(self):
+        class FileForm(forms.Form):
+            document = forms.FileField(
+                label="Upload",
+                widget=forms.ClearableFileInput(attrs={"data-uswds": "true"}),
+            )
+
+        form = FileForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert 'data-uswds="true"' in html
+
+    def test_standard_html_attrs_work_alongside_uswds_attrs(self):
+        class MixedAttrsForm(forms.Form):
+            name = forms.CharField(
+                label="Name",
+                widget=forms.TextInput(
+                    attrs={"width": "md", "disabled": True, "class": "extra"}
+                ),
+            )
+
+        form = MixedAttrsForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-input--md" in html
+        assert "disabled" in html
+        assert "extra" in html
+        assert 'id="id_name"' in html
+        assert 'name="name"' in html
+
+    def test_global_renderer_and_mixin_coexist(self, settings):
+        from django_cotton_uswds.mixins import USWDSFormMixin
+
+        settings.FORM_RENDERER = "django_cotton_uswds.renderer.USWDSFormRenderer"
+
+        class MixinForm(USWDSFormMixin, forms.Form):
+            email = forms.EmailField(label="Email")
+
+        class PlainForm(forms.Form):
+            name = forms.CharField(label="Name")
+
+        mixin_html = MixinForm().render()
+        plain_html = PlainForm().render()
+
+        # Both forms render USWDS structure
+        assert "usa-input" in mixin_html
+        assert "usa-input" in plain_html
+        assert "usa-label" in mixin_html
+        assert "usa-label" in plain_html

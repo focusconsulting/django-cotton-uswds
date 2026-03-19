@@ -3,6 +3,7 @@
     id="{{ widget.attrs.id }}"
     :disabled="{{ widget.attrs.disabled }}"
     :required="{{ widget.required }}"
+    :attrs="widget.attrs"
 >{% for group_name, group_choices, group_index in widget.optgroups %}{% if group_name %}
     <optgroup label="{{ group_name }}">{% for option in group_choices %}
         <option value="{{ option.value|stringformat:'s' }}"{% if option.selected %} selected{% endif %}>{{ option.label }}</option>
