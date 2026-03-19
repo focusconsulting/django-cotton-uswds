@@ -504,10 +504,8 @@ class TestUSWDSAttributePassthrough:
         assert 'id="id_name"' in html
         assert 'name="name"' in html
 
-    def test_global_renderer_and_mixin_coexist(self, settings):
+    def test_mixin_provides_uswds_without_global_renderer(self):
         from django_cotton_uswds.mixins import USWDSFormMixin
-
-        settings.FORM_RENDERER = "django_cotton_uswds.renderer.USWDSFormRenderer"
 
         class MixinForm(USWDSFormMixin, forms.Form):
             email = forms.EmailField(label="Email")
@@ -518,8 +516,10 @@ class TestUSWDSAttributePassthrough:
         mixin_html = MixinForm().render()
         plain_html = PlainForm().render()
 
-        # Both forms render USWDS structure
+        # Mixin form renders USWDS structure
         assert "usa-input" in mixin_html
-        assert "usa-input" in plain_html
         assert "usa-label" in mixin_html
-        assert "usa-label" in plain_html
+
+        # Plain form does NOT render USWDS structure
+        assert "usa-input" not in plain_html
+        assert "usa-label" not in plain_html
