@@ -45,7 +45,7 @@ version-file = "django_cotton_uswds/_version.py"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"
-pythonpath = ["."]
+pythonpath = [".", "demo_project"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["django_cotton_uswds"]

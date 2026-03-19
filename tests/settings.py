@@ -3,6 +3,7 @@ SECRET_KEY = "test-secret-key"
 INSTALLED_APPS = [
     "django_cotton",
     "django_cotton_uswds",
+    "demo_app",
 ]
 
 TEMPLATES = [

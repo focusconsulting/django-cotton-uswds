@@ -1,3 +1,4 @@
+from demo_app.forms import DemoForm
 from django.http import Http404
 from django.views.generic import TemplateView
 
@@ -44,6 +45,7 @@ COMPONENTS = [
     ("range-slider", "Range Slider", "Forms"),
     ("select", "Select", "Forms"),
     ("text-input", "Text Input", "Forms"),
+    ("form-renderer", "Form Renderer", "Forms"),
     ("textarea", "Textarea", "Forms"),
     ("time-picker", "Time Picker", "Forms"),
     # Interactive
@@ -103,3 +105,22 @@ class ComponentView(TemplateView):
                 break
         context["components_by_category"] = get_components_by_category()
         return context
+
+
+class FormRendererView(TemplateView):
+    template_name = "demo_app/components/form_renderer.html"
+
+    def get_context_data(self, form=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = form or DemoForm()
+        context["component_name"] = "Form Renderer"
+        context["component_slug"] = "form-renderer"
+        context["component_category"] = "Forms"
+        context["components_by_category"] = get_components_by_category()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = DemoForm(request.POST)
+        if form.is_valid():
+            return self.render_to_response(self.get_context_data(form=form))
+        return self.render_to_response(self.get_context_data(form=form))
