@@ -228,6 +228,166 @@ class TestCharFieldRendersUSWDSStructure:
         assert 'value="r" selected' not in html
 
 
+class TestRadioSelectRendering:
+    def test_radio_select_renders_fieldset_with_radio_buttons(self):
+        class RadioForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.RadioSelect,
+            )
+
+        form = RadioForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-fieldset" in html
+        assert "usa-radio" in html
+        assert 'value="r"' in html
+        assert "Red" in html
+        assert 'value="g"' in html
+        assert 'value="b"' in html
+
+    def test_radio_select_shows_error_state(self):
+        class RadioForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.RadioSelect,
+            )
+
+        form = RadioForm(data={}, renderer=USWDSFormRenderer())
+        form.is_valid()
+        html = form.render()
+
+        assert "usa-error-message" in html
+        assert "usa-form-group--error" in html
+
+    def test_required_radio_select_shows_required_marker(self):
+        class RadioForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.RadioSelect,
+            )
+
+        form = RadioForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-hint--required" in html
+
+    def test_radio_select_help_text_renders_as_hint(self):
+        class RadioForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.RadioSelect,
+                help_text="Choose one color",
+            )
+
+        form = RadioForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-hint" in html
+        assert "Choose one color" in html
+
+    def test_radio_select_preserves_selected_value(self):
+        class RadioForm(forms.Form):
+            color = forms.ChoiceField(
+                label="Favorite color",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.RadioSelect,
+            )
+
+        form = RadioForm(data={"color": "g"}, renderer=USWDSFormRenderer())
+        form.is_valid()
+        html = form.render()
+
+        assert 'value="g"' in html
+        assert "checked" in html
+
+
+class TestCheckboxSelectRendering:
+    def test_checkbox_select_renders_fieldset_with_checkboxes(self):
+        class MultiCheckForm(forms.Form):
+            colors = forms.MultipleChoiceField(
+                label="Pick colors",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.CheckboxSelectMultiple,
+            )
+
+        form = MultiCheckForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-fieldset" in html
+        assert "usa-checkbox" in html
+        assert 'value="r"' in html
+        assert "Red" in html
+        assert 'value="g"' in html
+        assert 'value="b"' in html
+
+    def test_required_checkbox_select_shows_required_marker(self):
+        class MultiCheckForm(forms.Form):
+            colors = forms.MultipleChoiceField(
+                label="Pick colors",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.CheckboxSelectMultiple,
+            )
+
+        form = MultiCheckForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-hint--required" in html
+
+    def test_checkbox_select_help_text_renders_as_hint(self):
+        class MultiCheckForm(forms.Form):
+            colors = forms.MultipleChoiceField(
+                label="Pick colors",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.CheckboxSelectMultiple,
+                help_text="Select all that apply",
+            )
+
+        form = MultiCheckForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-hint" in html
+        assert "Select all that apply" in html
+
+    def test_checkbox_select_shows_error_state(self):
+        class MultiCheckForm(forms.Form):
+            colors = forms.MultipleChoiceField(
+                label="Pick colors",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.CheckboxSelectMultiple,
+            )
+
+        form = MultiCheckForm(data={}, renderer=USWDSFormRenderer())
+        form.is_valid()
+        html = form.render()
+
+        assert "usa-error-message" in html
+        assert "usa-form-group--error" in html
+
+    def test_checkbox_select_preserves_selected_values(self):
+        class MultiCheckForm(forms.Form):
+            colors = forms.MultipleChoiceField(
+                label="Pick colors",
+                choices=[("r", "Red"), ("g", "Green"), ("b", "Blue")],
+                widget=forms.CheckboxSelectMultiple,
+            )
+
+        form = MultiCheckForm(
+            data={"colors": ["r", "b"]},
+            renderer=USWDSFormRenderer(),
+        )
+        form.is_valid()
+        html = form.render()
+
+        assert 'value="r"' in html
+        assert 'value="b"' in html
+        assert html.count("checked") >= 2
+
+
 class TestFormRoundTrip:
     def test_submitted_form_preserves_values_and_shows_errors(self):
         class ProfileForm(forms.Form):
