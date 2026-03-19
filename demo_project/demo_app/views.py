@@ -1,5 +1,5 @@
 from demo_app.forms import DemoForm
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.views.generic import TemplateView
 
 COMPONENTS = [
@@ -117,10 +117,11 @@ class FormRendererView(TemplateView):
         context["component_slug"] = "form-renderer"
         context["component_category"] = "Forms"
         context["components_by_category"] = get_components_by_category()
+        context["success"] = self.request.GET.get("success") == "1"
         return context
 
     def post(self, request, *args, **kwargs):
-        form = DemoForm(request.POST)
+        form = DemoForm(request.POST, request.FILES)
         if form.is_valid():
-            return self.render_to_response(self.get_context_data(form=form))
+            return HttpResponseRedirect("/components/form-renderer/?success=1")
         return self.render_to_response(self.get_context_data(form=form))
