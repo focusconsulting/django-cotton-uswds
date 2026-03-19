@@ -8,7 +8,8 @@
     id="{{ field.id_for_label }}"
     error="{% for e in field.errors %}{{ e }} {% endfor %}"
   />
-  <c-fieldset legend="{{ field.label }}">
+  <c-fieldset legend="{{ field.label }}" required="{% if field.field.required %}true{% endif %}">
+    {% if field.help_text %}<div class="usa-hint">{{ field.help_text }}</div>{% endif %}
     {{ field }}
   </c-fieldset>
 </c-form_group>
