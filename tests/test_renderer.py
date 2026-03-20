@@ -420,7 +420,7 @@ class TestGlobalFormRendererSetting:
         assert "usa-label" in html
         assert "usa-input" in html
 
-    def test_package_root_form_renderer_string_activates_uswds_rendering(self, settings):
+    def test_package_root_renderer_string_activates_uswds(self, settings):
         settings.FORM_RENDERER = "django_cotton_uswds.USWDSFormRenderer"
 
         form = SimpleForm()

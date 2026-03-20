@@ -4,10 +4,14 @@
     aria_current=""
 />
 
-<li 
-    class="usa-breadcrumb__list-item{% if aria_current %} usa-current{% endif %}" 
-    {{ attrs }} 
+<li
+    class="usa-breadcrumb__list-item{% if aria_current %} usa-current{% endif %}"
+    {{ attrs }}
     {% if aria_current %}aria-current="{{ aria_current }}"{% endif %}
 >
+    {% if aria_current %}
+    <span>{{ list_item }}</span>
+    {% else %}
     <a href="{{ href }}" class="usa-breadcrumb__link"><span>{{ list_item }}</span></a>
+    {% endif %}
 </li>

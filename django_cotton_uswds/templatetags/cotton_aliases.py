@@ -1,20 +1,26 @@
-"""Alias module to make django-cotton templatetags available via a simple builtin.
+"""Deprecated alias module — kept for backward compatibility only.
 
-Add the path `django_cotton_uswds.templatetags.cotton_aliases` to
-TEMPLATES[...]['OPTIONS']['builtins'] if you want the cotton tags to be
-available everywhere without `{% load cotton %}`.
+The USWDS form renderer now registers Cotton builtins internally.
+For project-level templates, add ``django_cotton.templatetags.cotton``
+directly to your ``TEMPLATES`` builtins instead.
 
-This module simply imports the real `django_cotton.templatetags.cotton`
-module so that its `register` definition is imported by Django's template
-library loader.
+See the django-cotton docs: https://django-cotton.com/
 """
 
 import contextlib
+import warnings
 
-from django_cotton.templatetags import cotton  # noqa: F401
+warnings.warn(
+    "django_cotton_uswds.templatetags.cotton_aliases is deprecated. "
+    "The USWDS form renderer registers Cotton builtins automatically. "
+    "For project templates, use 'django_cotton.templatetags.cotton' "
+    "directly in your TEMPLATES builtins. "
+    "See the django-cotton docs: https://django-cotton.com/",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
-# expose the `register` object so Django's template loader accepts this
-# module as a template library when used in TEMPLATES[...]['OPTIONS']['builtins']
+from django_cotton.templatetags import cotton  # noqa: F401, E402
 
 with contextlib.suppress(Exception):
     register = cotton.register
