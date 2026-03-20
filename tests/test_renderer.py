@@ -420,6 +420,76 @@ class TestGlobalFormRendererSetting:
         assert "usa-label" in html
         assert "usa-input" in html
 
+    def test_package_root_form_renderer_string_activates_uswds_rendering(self, settings):
+        settings.FORM_RENDERER = "django_cotton_uswds.USWDSFormRenderer"
+
+        form = SimpleForm()
+        html = form.render()
+
+        assert "usa-form-group" in html
+        assert "usa-label" in html
+        assert "usa-input" in html
+
+
+class TestPackageRootImports:
+    def test_uswds_form_renderer_importable_from_package_root(self):
+        from django_cotton_uswds import USWDSFormRenderer
+
+        assert USWDSFormRenderer is not None
+
+    def test_uswds_form_mixin_importable_from_package_root(self):
+        from django_cotton_uswds import USWDSFormMixin
+
+        assert USWDSFormMixin is not None
+
+    def test_package_all_contains_expected_names(self):
+        import django_cotton_uswds
+
+        assert "USWDSFormMixin" in django_cotton_uswds.__all__
+        assert "USWDSFormRenderer" in django_cotton_uswds.__all__
+
+    def test_deep_renderer_import_still_works(self):
+        from django_cotton_uswds.renderer import USWDSFormRenderer
+
+        assert USWDSFormRenderer is not None
+
+    def test_deep_mixin_import_still_works(self):
+        from django_cotton_uswds.mixins import USWDSFormMixin
+
+        assert USWDSFormMixin is not None
+
+    def test_package_root_and_deep_import_are_same_class(self):
+        from django_cotton_uswds import USWDSFormMixin as RootMixin
+        from django_cotton_uswds import USWDSFormRenderer as RootRenderer
+        from django_cotton_uswds.mixins import USWDSFormMixin as DeepMixin
+        from django_cotton_uswds.renderer import USWDSFormRenderer as DeepRenderer
+
+        assert RootRenderer is DeepRenderer
+        assert RootMixin is DeepMixin
+
+    def test_package_root_renderer_produces_uswds_output(self):
+        from django_cotton_uswds import USWDSFormRenderer
+
+        form = SimpleForm(renderer=USWDSFormRenderer())
+        html = form.render()
+
+        assert "usa-form-group" in html
+        assert "usa-label" in html
+        assert "usa-input" in html
+
+    def test_package_root_mixin_produces_uswds_output(self):
+        from django_cotton_uswds import USWDSFormMixin
+
+        class MixinForm(USWDSFormMixin, forms.Form):
+            name = forms.CharField(label="Full name")
+
+        form = MixinForm()
+        html = form.render()
+
+        assert "usa-form-group" in html
+        assert "usa-label" in html
+        assert "usa-input" in html
+
 
 class TestUSWDSFormMixin:
     def test_mixin_renders_uswds_structure(self):

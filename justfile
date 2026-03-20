@@ -20,3 +20,7 @@ clean:
 # Run CI checks locally using act
 ci *args:
     act push {{ args }}
+
+# Run Ralph task runner
+ralph *flags:
+    bash ralph.sh {{ flags }}
