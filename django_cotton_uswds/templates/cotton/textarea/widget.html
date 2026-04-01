@@ -1,0 +1,23 @@
+<c-vars
+    error=""
+    success=""
+    disabled=""
+    readonly=""
+    required=""
+    aria_describedby=""
+    extra_classes=""
+    input_classes=""
+    rows=""
+    value=""
+    character_count=""
+    maxlength=""
+/>
+
+<textarea
+  class="usa-textarea{{ input_classes }}{% if error %} usa-input--error{% endif %}{% if success %} usa-input--success{% endif %} {% if maxlength %}usa-character-count__field{% endif %} {{ extra_classes }}"
+  {{ attrs }}
+  {% if disabled %}disabled{% endif %}
+  {% if readonly %}readonly{% endif %}
+  {% if required %}required{% endif %}
+  {% if error %}aria-describedby="{{ id }}-error-message{% if hint %} {{ id }}-hint{% endif %}{% if aria_describedby %} {{ aria_describedby }}{% endif %}"{% elif hint or aria_describedby %}aria-describedby="{% if hint %}{{ id }}-hint{% endif %}{% if aria_describedby %} {{ aria_describedby }}{% endif %}"{% endif %} {% if rows %}rows="{{ rows }}"{% endif %}
+>{{ value }}</textarea>
