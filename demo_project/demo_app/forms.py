@@ -1,6 +1,6 @@
 from django import forms
 
-from django_cotton_uswds.mixins import USWDSFormMixin
+from django_cotton_uswds import USWDSFormMixin
 
 REASON_CHOICES = [
     ("", "- Select -"),
