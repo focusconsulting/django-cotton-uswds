@@ -1,6 +1,6 @@
 # Date Range Picker
 
-A date range picker helps users select a start and end date. Uses the `<c-label>` and `<c-date-picker>` sub-components internally.
+A date range picker helps users select a start and end date. Uses the `c-label` and `c-date-picker` sub-components internally.
 
 ## Props
 

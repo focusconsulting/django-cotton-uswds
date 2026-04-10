@@ -18,7 +18,7 @@ A summary box draws attention to important content on a page.
 
 ## Sub-components
 
-### `<c-summary_box.link>`
+### `c-summary_box.link`
 
 A styled link for use within a summary box.
 

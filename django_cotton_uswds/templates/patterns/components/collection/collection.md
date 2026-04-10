@@ -17,7 +17,7 @@ A flexible collection component following USWDS patterns for displaying lists of
 
 ## Sub-components
 
-### `<c-collection.item>`
+### `c-collection.item`
 
 | Prop              | Default | Description                                    |
 | ----------------- | ------- | ---------------------------------------------- |
@@ -33,7 +33,7 @@ A flexible collection component following USWDS patterns for displaying lists of
 | `calendar_day`    |         | Day number for calendar display                |
 | `extra_classes`   |         | Additional CSS classes for the item            |
 
-### `<c-collection.meta>`
+### `c-collection.meta`
 
 Wrapper for metadata information (authors, dates, sources).
 
@@ -42,7 +42,7 @@ Wrapper for metadata information (authors, dates, sources).
 | `aria_label`    | `More information` | ARIA label for the meta list             |
 | `extra_classes` |                    | Additional CSS classes for the meta list |
 
-### `<c-collection.meta_item>`
+### `c-collection.meta_item`
 
 Individual metadata item (author, date, or tag).
 

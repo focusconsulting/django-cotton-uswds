@@ -11,11 +11,11 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
-    "pattern_library",
     "django_cotton",
     "django_cotton_uswds",
-    "django_distill",
     "demo_app",
+    "pattern_library",
+    "django_distill",
 ]
 
 MIDDLEWARE = [

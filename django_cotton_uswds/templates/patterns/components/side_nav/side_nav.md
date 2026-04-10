@@ -17,7 +17,7 @@ A hierarchical, vertical navigation component following USWDS patterns. Supports
 
 ## Sub-components
 
-### `<c-side_nav.item>`
+### `c-side_nav.item`
 
 | Prop            | Default | Description                                     |
 | --------------- | ------- | ----------------------------------------------- |
@@ -26,7 +26,7 @@ A hierarchical, vertical navigation component following USWDS patterns. Supports
 | `is_current`    | `false` | Mark as current page                            |
 | `extra_classes` |         | Additional CSS classes for the item             |
 
-**Slot**: Can contain child `<c-side_nav.item>` elements to create nested navigation (sublists).
+**Slot**: Can contain child `c-side_nav.item` elements to create nested navigation (sublists).
 
 ## Example Usage
 

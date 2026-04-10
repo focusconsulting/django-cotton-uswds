@@ -4,11 +4,11 @@ A process list displays a series of steps or stages in a process, helping users 
 
 ## Props
 
-### `<c-process_list>`
+### `c-process_list`
 
 The main wrapper component. No props required.
 
-### `<c-process_list.item>`
+### `c-process_list.item`
 
 | Prop              | Default | Description                                                      |
 | ----------------- | ------- | ---------------------------------------------------------------- |

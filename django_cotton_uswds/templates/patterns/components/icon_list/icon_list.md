@@ -18,7 +18,7 @@ A list component that pairs icons with content, following USWDS patterns. Suppor
 
 ## Sub-components
 
-### `<c-icon_list.item>`
+### `c-icon_list.item`
 
 | Prop            | Default | Description                                              |
 | --------------- | ------- | -------------------------------------------------------- |

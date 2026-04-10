@@ -20,12 +20,12 @@ A federal agency identifier that communicates a site's parent agency and display
 
 | Slot      | Description                                    |
 | --------- | ---------------------------------------------- |
-| (default) | Required links (`<c-identifier.link>`)         |
-| `logos`   | Agency logos (`<c-identifier.logo>`)           |
+| (default) | Required links (`c-identifier.link`)         |
+| `logos`   | Agency logos (`c-identifier.logo`)           |
 
 ## Sub-components
 
-### `<c-identifier.logo>`
+### `c-identifier.logo`
 
 | Prop   | Default | Description                          |
 | ------ | ------- | ------------------------------------ |
@@ -33,7 +33,7 @@ A federal agency identifier that communicates a site's parent agency and display
 | `icon` |         | USWDS icon name (e.g., "flag")       |
 | `alt`  |         | Image alt text                       |
 
-### `<c-identifier.link>`
+### `c-identifier.link`
 
 | Prop   | Default | Description |
 | ------ | ------- | ----------- |
