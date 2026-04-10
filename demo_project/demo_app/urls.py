@@ -5,6 +5,7 @@ from demo_app.views import (
     FormRendererView,
 )
 from django_distill import distill_path
+from django.urls import path, include
 
 
 def no_params():
@@ -34,4 +35,5 @@ urlpatterns = [
         name="component-detail",
         distill_func=all_component_slugs,
     ),
+    path("pattern-library/", include("pattern_library.urls")),
 ]

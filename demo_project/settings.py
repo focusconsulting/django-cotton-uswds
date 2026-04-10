@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
+    "pattern_library",
     "django_cotton",
     "django_cotton_uswds",
     "django_distill",
@@ -38,11 +39,21 @@ TEMPLATES = [
                 "django.template.context_processors.static",
             ],
             "builtins": [
+                "pattern_library.loader_tags",
                 "django_cotton.templatetags.cotton",
             ],
         },
     },
 ]
+
+PATTERN_LIBRARY = {
+    "SECTIONS": (
+        ("Components", ["patterns/components"]),
+        ("Pages", ["patterns/pages"]),
+    ),
+    "TEMPLATE_SUFFIX": ".html",
+    "PATTERN_BASE_TEMPLATE_NAME": "patterns/base.html",
+}
 
 WSGI_APPLICATION = "wsgi.application"
 

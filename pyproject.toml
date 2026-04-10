@@ -23,6 +23,7 @@ classifiers = [
 dependencies = [
     "django>=4.2",
     "django-cotton>=1.2.1",
+    "django-pattern-library>=1.5.0",
 ]
 
 [project.optional-dependencies]

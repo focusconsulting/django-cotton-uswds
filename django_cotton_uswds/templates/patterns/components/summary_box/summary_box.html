@@ -1,0 +1,24 @@
+{% load cotton %}
+
+<div class="component-variants">
+    <h1>Summary Box Component</h1>
+    
+    {% for variant in variants %}
+    <div class="component-variant">
+        <h2 class="variant-title">{{ variant.title }}</h2>
+        
+        <c-summary_box 
+            heading="{{ variant.heading }}"
+            heading_level="{{ variant.heading_level|default:'h4' }}"
+        >
+            {% if variant.items %}
+            <ul class="usa-list">
+                {% for item in variant.items %}
+                <li>{{ item.text|safe }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </c-summary_box>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+name: Summary Box
+context:
+  variants:
+    - title: "Summary Box with List"
+      heading: "Key information"
+      heading_level: "h4"
+      items:
+        - text: 'If you are under a winter storm warning, <a class="usa-summary-box__link" href="#">find shelter</a> right away.'
+        - text: 'Sign up for <a class="usa-summary-box__link" href="#">your community''s warning system</a>.'
+        - text: 'Learn the signs of, and basic treatments for, <a class="usa-summary-box__link" href="#">frostbite</a> and <a class="usa-summary-box__link" href="#">hypothermia</a>.'
+        - text: 'Gather emergency supplies for your <a class="usa-summary-box__link" href="#">home</a> and your <a class="usa-summary-box__link" href="#">car</a>.'
