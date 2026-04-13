@@ -1,0 +1,30 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A time picker allows users to select a specific time from a dropdown of time options.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group>
+  <c-label id="time-default" label="Appointment time" hint="Select a time in 30-minute increments" />
+  <c-time_picker id="time-default" name="appointment_time" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Required</h2>
+<c-form_group>
+  <c-label id="time-required" label="Meeting start time" required="true" />
+  <c-time_picker id="time-required" name="meeting_time" required="required" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With min and max time</h2>
+<c-form_group>
+  <c-label id="time-range" label="Office visit time" hint="Office hours are 8:00 AM to 5:00 PM" />
+  <c-time_picker id="time-range" name="visit_time" data-min-time="08:00" data-max-time="17:00" />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="time-disabled" label="Previously scheduled time" />
+  <c-time_picker id="time-disabled" name="previous_time" disabled="disabled" />
+</c-form_group>
+{% endblock %}

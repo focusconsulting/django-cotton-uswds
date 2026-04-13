@@ -1,0 +1,38 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">The prose component formats long-form content with proper typographic styling.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-prose>
+    <h3>Applying for federal student aid</h3>
+    <p>
+        The Free Application for Federal Student Aid (FAFSA) is the first step in the financial aid process. Use it to apply for federal grants, work-study programs, and loans. Most states and colleges also use FAFSA data to determine eligibility for state and institutional aid.
+    </p>
+    <h4>Eligibility requirements</h4>
+    <p>
+        To receive federal student aid, you must meet certain requirements. These include demonstrating financial need for most programs, being a U.S. citizen or eligible noncitizen, and being enrolled or accepted at an eligible institution.
+    </p>
+    <ul>
+        <li>Complete the FAFSA form at <a href="#">studentaid.gov</a></li>
+        <li>Provide your Social Security number and federal tax information</li>
+        <li>List the schools you are considering attending</li>
+        <li>Review and sign your application using your FSA ID</li>
+    </ul>
+    <h4>Important deadlines</h4>
+    <p>
+        The federal deadline to submit the FAFSA is June 30 of the award year. However, many states and colleges have earlier deadlines. Check with your state agency and the financial aid offices at the schools you are interested in to determine their specific deadlines.
+    </p>
+    <ol>
+        <li>Gather your documents, including tax returns and bank statements</li>
+        <li>Create an FSA ID if you do not already have one</li>
+        <li>Complete and submit the FAFSA as early as possible</li>
+        <li>Review your Student Aid Report and correct any errors</li>
+        <li>Compare financial aid offers from schools and make your decision</li>
+    </ol>
+    <p>
+        For more information, visit the Federal Student Aid website or contact your school's financial aid office. Trained representatives are available to assist you with the application process.
+    </p>
+</c-prose>
+{% endblock %}

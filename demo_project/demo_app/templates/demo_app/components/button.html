@@ -1,0 +1,38 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A button draws attention to important actions with a large selectable surface.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-button text="Submit application" />
+
+<h2 class="font-heading-xl margin-top-4">Secondary</h2>
+<c-button text="Save draft" variant="secondary" />
+
+<h2 class="font-heading-xl margin-top-4">Accent cool</h2>
+<c-button text="Learn more" variant="accent-cool" />
+
+<h2 class="font-heading-xl margin-top-4">Accent warm</h2>
+<c-button text="Get started" variant="accent-warm" />
+
+<h2 class="font-heading-xl margin-top-4">Base</h2>
+<c-button text="Cancel" variant="base" />
+
+<h2 class="font-heading-xl margin-top-4">Outline</h2>
+<c-button text="Back to search" variant="outline" />
+
+<h2 class="font-heading-xl margin-top-4">Outline inverse</h2>
+<div class="bg-base-darkest padding-2">
+    <c-button text="Return to portal" variant="outline-inverse" />
+</div>
+
+<h2 class="font-heading-xl margin-top-4">Big</h2>
+<c-button text="Create account" state="big" />
+
+<h2 class="font-heading-xl margin-top-4">Unstyled</h2>
+<c-button text="Skip to main content" state="unstyled" />
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-button text="Submit application" disabled="true" />
+{% endblock %}

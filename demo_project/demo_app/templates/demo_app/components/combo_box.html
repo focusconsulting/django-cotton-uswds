@@ -1,0 +1,60 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A combo box helps users select an item from a large list of options by providing a type-ahead filtering mechanism.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-form_group>
+  <c-label id="combo-state" label="Select your state or territory" />
+  <c-combo_box name="state" :options='[
+    {"value": "AL", "label": "Alabama"},
+    {"value": "AK", "label": "Alaska"},
+    {"value": "AZ", "label": "Arizona"},
+    {"value": "AR", "label": "Arkansas"},
+    {"value": "CA", "label": "California"},
+    {"value": "CO", "label": "Colorado"},
+    {"value": "CT", "label": "Connecticut"},
+    {"value": "DE", "label": "Delaware"},
+    {"value": "DC", "label": "District of Columbia"},
+    {"value": "FL", "label": "Florida"},
+    {"value": "GA", "label": "Georgia"},
+    {"value": "HI", "label": "Hawaii"},
+    {"value": "ID", "label": "Idaho"},
+    {"value": "IL", "label": "Illinois"},
+    {"value": "IN", "label": "Indiana"},
+    {"value": "MD", "label": "Maryland"},
+    {"value": "NY", "label": "New York"},
+    {"value": "TX", "label": "Texas"},
+    {"value": "VA", "label": "Virginia"},
+    {"value": "WA", "label": "Washington"}
+  ]' />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">With default value</h2>
+<c-form_group>
+  <c-label id="combo-agency" label="Select your agency" />
+  <c-combo_box name="agency" default_value="DOD" :options='[
+    {"value": "DOC", "label": "Department of Commerce"},
+    {"value": "DOD", "label": "Department of Defense"},
+    {"value": "DOE", "label": "Department of Education"},
+    {"value": "DOJ", "label": "Department of Justice"},
+    {"value": "DOL", "label": "Department of Labor"},
+    {"value": "DOS", "label": "Department of State"},
+    {"value": "DOT", "label": "Department of Transportation"},
+    {"value": "HHS", "label": "Department of Health and Human Services"},
+    {"value": "DHS", "label": "Department of Homeland Security"},
+    {"value": "VA", "label": "Department of Veterans Affairs"}
+  ]' />
+</c-form_group>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-form_group>
+  <c-label id="combo-disabled" label="Previously selected office" />
+  <c-combo_box name="office" disabled="true" :options='[
+    {"value": "HQ", "label": "Headquarters"},
+    {"value": "EAST", "label": "Eastern Regional Office"},
+    {"value": "WEST", "label": "Western Regional Office"}
+  ]' />
+</c-form_group>
+{% endblock %}

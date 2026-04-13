@@ -1,0 +1,27 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">In-page navigation helps users understand the contents of a page and defined defined sections.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-in_page_nav content_id="in-page-nav-demo">
+    <h2>Eligibility requirements</h2>
+    <p>To be eligible for federal benefits, applicants must be a U.S. citizen or qualified non-citizen, meet income guidelines based on household size, and provide required documentation including proof of identity and residency.</p>
+
+    <h3>Income guidelines</h3>
+    <p>Income eligibility is determined by comparing your household's gross monthly income to the federal poverty level for your household size. Deductions for housing costs, dependent care, and medical expenses may be applied to reduce your countable income.</p>
+
+    <h2>How to apply</h2>
+    <p>Applications can be submitted online through the agency portal, by mail using Form SF-1234, or in person at your nearest regional office. Processing times vary by submission method, with online applications typically receiving the fastest response.</p>
+
+    <h3>Required documents</h3>
+    <p>You will need to provide a government-issued photo ID, proof of residency such as a utility bill or lease agreement, income verification including recent pay stubs or tax returns, and Social Security numbers for all household members.</p>
+
+    <h2>Processing timeline</h2>
+    <p>Most applications are processed within 30 business days of receipt. If additional documentation is required, you will be notified by mail and given 10 business days to respond. Expedited processing may be available for applicants in emergency situations.</p>
+
+    <h2>Appeals process</h2>
+    <p>If your application is denied, you have the right to appeal the decision within 90 days. Appeals can be submitted online or by mail. You may request a hearing before an administrative law judge, and you have the right to legal representation during the process.</p>
+</c-in_page_nav>
+{% endblock %}

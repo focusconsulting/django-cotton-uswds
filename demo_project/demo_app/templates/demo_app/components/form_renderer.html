@@ -1,0 +1,16 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">Render a complete Django form using the USWDS form renderer.</p>
+
+{% if success %}
+<c-alert type="success">Your form was submitted successfully.</c-alert>
+{% endif %}
+
+<form class="usa-form usa-form--large" method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form }}
+    <c-button type="submit" text="Submit" />
+</form>
+{% endblock %}

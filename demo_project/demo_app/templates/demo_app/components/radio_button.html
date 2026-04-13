@@ -1,0 +1,76 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">Radio buttons allow users to select exactly one option from a group of mutually exclusive choices.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-fieldset legend="What is your employment status?">
+  <c-radio_button id="radio-employed" name="employment" label="Employed" value="employed" />
+  <c-radio_button id="radio-unemployed" name="employment" label="Unemployed" value="unemployed" />
+  <c-radio_button id="radio-retired" name="employment" label="Retired" value="retired" />
+  <c-radio_button id="radio-student" name="employment" label="Student" value="student" />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">With label descriptions</h2>
+<c-fieldset legend="How would you like to receive your tax refund?">
+  <c-radio_button
+    id="radio-direct"
+    name="refund_method"
+    label="Direct deposit"
+    label_description="Fastest option. Funds deposited in 1-2 business days."
+    value="direct"
+    :checked="True"
+  />
+  <c-radio_button
+    id="radio-check"
+    name="refund_method"
+    label="Paper check"
+    label_description="Mailed to your address on file. Allow 4-6 weeks."
+    value="check"
+  />
+  <c-radio_button
+    id="radio-bond"
+    name="refund_method"
+    label="U.S. Savings Bond"
+    label_description="Purchase Series I bonds with your refund amount."
+    value="bond"
+  />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Tile</h2>
+<c-fieldset legend="Select your filing status">
+  <c-radio_button
+    id="radio-tile-single"
+    name="filing_status"
+    label="Single"
+    label_description="Unmarried or legally separated"
+    value="single"
+    radio_type="tile"
+  />
+  <c-radio_button
+    id="radio-tile-married"
+    name="filing_status"
+    label="Married filing jointly"
+    label_description="Filing a combined return with your spouse"
+    value="married_joint"
+    radio_type="tile"
+  />
+  <c-radio_button
+    id="radio-tile-head"
+    name="filing_status"
+    label="Head of household"
+    label_description="Unmarried with a qualifying dependent"
+    value="head_household"
+    radio_type="tile"
+  />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Pre-selected</h2>
+<c-fieldset legend="Preferred language">
+  <c-radio_button id="radio-lang-en" name="language" label="English" value="en" :checked="True" />
+  <c-radio_button id="radio-lang-es" name="language" label="Spanish" value="es" />
+  <c-radio_button id="radio-lang-zh" name="language" label="Chinese" value="zh" />
+  <c-radio_button id="radio-lang-vi" name="language" label="Vietnamese" value="vi" />
+</c-fieldset>
+{% endblock %}

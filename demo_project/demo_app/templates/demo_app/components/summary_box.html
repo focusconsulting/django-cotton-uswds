@@ -1,0 +1,32 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A summary box highlights key information from a longer page or displays next steps.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-summary_box heading="Key information about filing your taxes">
+    <ul class="usa-list">
+        <li>
+            <c-summary_box.link href="#">
+                Determine if you are required to file a federal tax return
+            </c-summary_box.link>
+        </li>
+        <li>
+            <c-summary_box.link href="#">
+                Gather your W-2s, 1099s, and other tax documents
+            </c-summary_box.link>
+        </li>
+        <li>
+            <c-summary_box.link href="#">
+                Choose a filing method: e-file, tax professional, or paper
+            </c-summary_box.link>
+        </li>
+        <li>
+            <c-summary_box.link href="#">
+                Check the status of your refund after filing
+            </c-summary_box.link>
+        </li>
+    </ul>
+</c-summary_box>
+{% endblock %}

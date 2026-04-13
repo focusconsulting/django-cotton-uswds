@@ -1,0 +1,38 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">Checkboxes allow users to select one or more options from a visible list.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-fieldset legend="Select the benefits you are applying for">
+  <c-checkbox id="cb-health" name="benefits" label="Health insurance" value="health" />
+  <c-checkbox id="cb-dental" name="benefits" label="Dental coverage" value="dental" />
+  <c-checkbox id="cb-vision" name="benefits" label="Vision coverage" value="vision" />
+  <c-checkbox id="cb-life" name="benefits" label="Life insurance" value="life" />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">With label descriptions</h2>
+<c-fieldset legend="Notification preferences">
+  <c-checkbox id="cb-email" name="notifications" label="Email" label_description="Receive updates via email within 24 hours" value="email" />
+  <c-checkbox id="cb-sms" name="notifications" label="Text message" label_description="Receive SMS alerts for urgent updates only" value="sms" />
+  <c-checkbox id="cb-mail" name="notifications" label="U.S. Mail" label_description="Receive printed correspondence within 5-7 business days" value="mail" />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Tile</h2>
+<c-fieldset legend="How would you like to submit your application?">
+  <c-checkbox id="cb-tile-online" name="submission" label="Online" label_description="Submit through the secure online portal" value="online" tile />
+  <c-checkbox id="cb-tile-mail" name="submission" label="By mail" label_description="Print and mail your completed application" value="mail" tile />
+  <c-checkbox id="cb-tile-person" name="submission" label="In person" label_description="Visit your local field office" value="person" tile />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Pre-checked</h2>
+<c-fieldset legend="Terms and conditions">
+  <c-checkbox id="cb-terms" name="terms" label="I agree to the terms of service" value="agreed" checked="checked" />
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Disabled</h2>
+<c-fieldset legend="Account type (cannot be changed)">
+  <c-checkbox id="cb-disabled" name="account_type" label="Federal employee" value="federal" checked="checked" disabled="disabled" />
+</c-fieldset>
+{% endblock %}

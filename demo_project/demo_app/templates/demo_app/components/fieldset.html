@@ -1,0 +1,49 @@
+{% extends "demo_app/pattern_base.html" %}
+
+{% block component_content %}
+<h1 class="font-heading-2xl">{{ component_name }}</h1>
+<p class="usa-intro">A fieldset groups related form elements together with a legend that describes the group.</p>
+
+<h2 class="font-heading-xl margin-top-4">Default</h2>
+<c-fieldset legend="Contact information">
+  <c-form_group>
+    <c-label id="fs-first-name" label="First name" />
+    <c-text_input id="fs-first-name" name="first_name" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="fs-last-name" label="Last name" />
+    <c-text_input id="fs-last-name" name="last_name" />
+  </c-form_group>
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Large legend</h2>
+<c-fieldset legend="Mailing address" legend_type="large">
+  <c-form_group>
+    <c-label id="fs-street" label="Street address" />
+    <c-text_input id="fs-street" name="street" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="fs-city" label="City" />
+    <c-text_input id="fs-city" name="city" />
+  </c-form_group>
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">Required</h2>
+<c-fieldset legend="Emergency contact" required="true">
+  <c-form_group>
+    <c-label id="fs-ec-name" label="Full name" />
+    <c-text_input id="fs-ec-name" name="emergency_contact_name" />
+  </c-form_group>
+  <c-form_group>
+    <c-label id="fs-ec-phone" label="Phone number" />
+    <c-text_input id="fs-ec-phone" name="emergency_contact_phone" type="tel" />
+  </c-form_group>
+</c-fieldset>
+
+<h2 class="font-heading-xl margin-top-4">With radio buttons</h2>
+<c-fieldset legend="Preferred contact method">
+  <c-radio_button id="fs-radio-email" name="contact_method" label="Email" value="email" :checked="True" />
+  <c-radio_button id="fs-radio-phone" name="contact_method" label="Phone" value="phone" />
+  <c-radio_button id="fs-radio-mail" name="contact_method" label="U.S. Mail" value="mail" />
+</c-fieldset>
+{% endblock %}
