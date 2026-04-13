@@ -1,7 +1,7 @@
 import logging
 from functools import partial
-from django.apps import AppConfig
 
+from django.apps import AppConfig
 
 logger = logging.getLogger(__name__)
 

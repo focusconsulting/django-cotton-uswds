@@ -1,12 +1,10 @@
 from demo_app.views import (
     COMPONENTS,
-    ComponentIndexView,
-    ComponentView,
-    FormRendererView,
 )
 from django.urls import include, path
-from django_distill import distill_path, distill_re_path
-from pattern_library import views as pl_views, get_pattern_template_suffix
+from django_distill import distill_re_path
+from pattern_library import get_pattern_template_suffix
+from pattern_library import views as pl_views
 from pattern_library.utils import TemplateRenderer
 
 
@@ -27,11 +25,11 @@ def all_pattern_templates():
             yield {"pattern_template_name": t.origin.template_name}
         for group in node.get("template_groups", {}).values():
             yield from extract(group)
+
     yield from extract(TemplateRenderer.get_pattern_templates())
 
 
 _suffix = get_pattern_template_suffix()
-
 
 
 urlpatterns = [
@@ -56,5 +54,3 @@ urlpatterns = [
     ),
     path("", include("pattern_library.urls")),
 ]
-
-
