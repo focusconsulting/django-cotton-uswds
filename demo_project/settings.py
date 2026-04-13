@@ -13,8 +13,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_cotton",
     "django_cotton_uswds",
-    "demo_app",
     "pattern_library",
+    "demo_app",
     "django_distill",
 ]
 
