@@ -1,6 +1,3 @@
-from demo_app.views import (
-    COMPONENTS,
-)
 from django.urls import include, path
 from django_distill import distill_re_path
 from pattern_library import get_pattern_template_suffix
@@ -10,13 +7,6 @@ from pattern_library.utils import TemplateRenderer
 
 def no_params():
     return None
-
-
-def all_component_slugs():
-    for slug, _, _ in COMPONENTS:
-        if slug == "form-renderer":
-            continue
-        yield {"slug": slug}
 
 
 def all_pattern_templates():

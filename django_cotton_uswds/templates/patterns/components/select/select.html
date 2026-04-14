@@ -8,8 +8,8 @@
         <h2 class="variant-title">{{ variant.title }}</h2>
 
         <c-label
-            control_id="{{ variant.control_id }}"
-            label_title="{{ variant.label_title }}"
+            id="{{ variant.id }}"
+            label="{{ variant.label_text }}"
         />
         <c-select :options="{{ variant.options|safe }}"
             id="{{ variant.id }}"

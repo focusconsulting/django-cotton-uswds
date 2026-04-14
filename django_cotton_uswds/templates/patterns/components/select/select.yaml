@@ -5,7 +5,7 @@ context:
       id: "select-1"
       label_text: "Select Dropdown"
       name: "Select 1"
-      required: "false"
+      required: false
       options:
         - display: "Select an option"
           value: "option0"
@@ -19,7 +19,7 @@ context:
       id: "select-2"
       label_text: "Select Dropdown"
       name: "Select 2"
-      required: "false"
+      required: false
       options:
         - display: "Select an option"
           value: "option0a"
@@ -34,7 +34,7 @@ context:
       id: "select-3"
       label_text: "Select Dropdown"
       name: "Select 3"
-      required: "false"
+      required: false
       default_option: "Option 4"
       default_value: "option4"
       options:
