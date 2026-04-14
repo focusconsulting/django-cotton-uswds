@@ -1,0 +1,42 @@
+{% load cotton %}
+
+<div class="component-variants">
+    <h1>Text Input Component</h1>
+
+    {% for variant in variants %}
+    <div class="component-variant">
+        <h2 class="variant-title">{{ variant.title }}</h2>
+        <c-label 
+            id="{{ variant.id }}" 
+            label="{{ variant.label }}" 
+            hint="{{ variant.hint }}" 
+            error="{{ variant.error }}"
+            required="{{ variant.required }}"
+            />
+        <c-text_input
+            id="{{ variant.id }}"
+            name="{{ variant.name }}"
+            label="{{ variant.label }}"
+            type="{{ variant.type }}"
+            value="{{ variant.value }}"
+            placeholder="{{ variant.placeholder }}"
+            hint="{{ variant.hint }}"
+            error="{{ variant.error }}"
+            success="{{ variant.success }}"
+            disabled="{{ variant.disabled }}"
+            readonly="{{ variant.readonly }}"
+            required="{{ variant.required }}"
+            width="{{ variant.width }}"
+            maxlength="{{ variant.maxlength }}"
+            pattern="{{ variant.pattern }}"
+            input_classes="{{ variant.input_classes }}"
+            placeholder="{{ variant.placeholder }}"
+            inputmode="{{ variant.inputmode }}"
+            aria-describedby="{{ variant.aria_describedby }}"
+            data-charset="{{ variant.data_charset }}"
+            >
+        </c-text_input>
+    </div>
+    {% endfor %}
+    
+</div>

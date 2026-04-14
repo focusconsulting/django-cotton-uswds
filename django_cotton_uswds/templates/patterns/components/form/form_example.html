@@ -1,0 +1,28 @@
+<c-form action="/submit">
+
+    <fieldset class="usa-fieldset">
+
+        <legend class="usa-legend usa-legend--large">Your Information</legend>
+
+        {% for field in fields %}
+
+        <c-form-group>
+            <c-label 
+                id="{{field.id }}" 
+                label="{{ field.label }}" 
+                required="true"
+            />
+
+            <c-text-input
+                id="{{ field.id }}"
+                name="first-name"
+                required="true"
+                type="{{ field.type|default:'text'}}"
+            />
+        </c-form-group>
+
+        {% endfor %}
+
+    </fieldset>
+
+</c-form>

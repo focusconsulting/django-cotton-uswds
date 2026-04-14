@@ -26,9 +26,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-demo = ["django-distill>=3.0.0"]
-dev = ["ruff>=0.4.0", "django-distill>=3.0.0"]
-test = ["pytest>=8.0", "pytest-django>=4.8"]
+demo = ["django-pattern-library>=1.5.0", "django-distill>=3.0.0"]
+dev = ["django-pattern-library>=1.5.0", "ruff>=0.4.0", "django-distill>=3.0.0"]
+test = ["django-pattern-library>=1.5.0", "pytest>=8.0", "pytest-django>=4.8"]
 
 [tool.ruff]
 target-version = "py310"
