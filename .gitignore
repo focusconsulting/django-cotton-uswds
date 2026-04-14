@@ -13,3 +13,4 @@ django_cotton_uswds/_version.py
 # Demo project output
 demo_project/dist/
 demo_project/staticfiles/
+.python-version
