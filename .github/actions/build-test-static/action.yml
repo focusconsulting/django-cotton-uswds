@@ -1,0 +1,39 @@
+name: 'Build and Test Github Pages Site'
+description: 'Build and Test Github Pages Site'
+runs:
+  using: "composite"
+  steps:
+    - name: Collect static files
+      working-directory: demo_project
+      run: uv run python manage.py collectstatic --noinput
+      shell: bash
+      env:
+          STATIC_URL: /django-cotton-uswds/static/
+          URL_PREFIX: /django-cotton-uswds
+
+    - name: Build static site
+      working-directory: demo_project
+      run: uv run python manage.py distill-local dist --force
+      shell: bash
+      env:
+          STATIC_URL: /django-cotton-uswds/static/
+          URL_PREFIX: /django-cotton-uswds
+
+    - name: Fix static paths for GitHub Pages
+      shell: bash
+      run: |
+          mv demo_project/dist/django-cotton-uswds/static demo_project/dist/static
+          rm -rf demo_project/dist/django-cotton-uswds
+
+    - name: Test static site assets
+      working-directory: demo_project
+      shell: bash
+      run: |
+        ln -s ./dist ./django-cotton-uswds
+        python -m http.server 8005 &
+        sleep 2
+        curl -I -f http://localhost:8005/django-cotton-uswds/render-pattern/patterns/components/accordion/accordion.html
+        curl -I -f http://localhost:8005/django-cotton-uswds/static/pattern_library/dist/bundle.js
+      env:
+        STATIC_URL: /django-cotton-uswds/static/
+        URL_PREFIX: /django-cotton-uswds

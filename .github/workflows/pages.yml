@@ -25,13 +25,8 @@ jobs:
 
       - run: uv sync --extra dev
 
-      - name: Collect static files
-        working-directory: demo_project
-        run: uv run python manage.py collectstatic --noinput
-
-      - name: Build static site
-        working-directory: demo_project
-        run: uv run python manage.py distill-local dist --force
+      - name: Build and test github pages static site
+        uses: ./.github/actions/build-test-static
 
       - uses: actions/configure-pages@v5
 

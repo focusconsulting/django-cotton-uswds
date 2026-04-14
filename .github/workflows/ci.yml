@@ -37,3 +37,9 @@ jobs:
 
       - name: Run tests
         run: uv run pytest
+
+      - name: Test github pages static site
+        uses: ./.github/actions/build-test-static
+
+
+          
