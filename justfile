@@ -17,6 +17,11 @@ build:
 clean:
     rm -rf demo_project/dist demo_project/staticfiles
 
+# Run the test suite
+test:
+    uv sync --extra dev --extra test --extra mcp
+    uv run pytest
+
 # Run CI checks locally using act
 ci *args:
     act push {{ args }}
