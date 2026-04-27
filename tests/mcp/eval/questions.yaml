@@ -1,0 +1,77 @@
+# Eval questions for the django-cotton-uswds MCP server.
+#
+# Each question represents a realistic developer task or decision.
+# "requires" lists what kind of knowledge is needed to answer well:
+#   - guidance: needs USWDS "when to use / when not to" knowledge (live fetch)
+#   - api: needs cotton component API knowledge (local .md)
+#   - scaffold: needs the scaffold_form tool
+
+questions:
+  - id: q1
+    question: >
+      I need to show users a message after they submit a form saying their
+      application was received. Should I use an alert or a site-alert?
+    requires: [guidance]
+    expected_keywords: [alert, site-alert, page-level, full-width]
+
+  - id: q2
+    question: >
+      What are the accessibility requirements I need to know about before
+      using a modal dialog in my Django app?
+    requires: [guidance, api]
+    expected_keywords: [aria, focus, aria-labelledby, aria-describedby, keyboard]
+
+  - id: q3
+    question: >
+      How do I render a Django RadioSelect widget with USWDS styling using the
+      form renderer?
+    requires: [api]
+    expected_keywords: [USWDSFormMixin, USWDSFormRenderer, RadioSelect, c-radio-button, fieldset]
+
+  - id: q4
+    question: >
+      I have a "Cancel" button next to a "Submit" button. What button variant
+      should I use for the cancel action?
+    requires: [guidance]
+    expected_keywords: [outline, unstyled, secondary, variant]
+
+  - id: q5
+    question: >
+      How do I limit a text input to a medium width using USWDS sizing?
+    requires: [api]
+    expected_keywords: [width, md, attrs, usa-input--md]
+
+  - id: q6
+    question: >
+      A user is going through a 4-step application form. Which USWDS component
+      should I use to show them their progress?
+    requires: [guidance]
+    expected_keywords: [step-indicator, step_indicator, c-step-indicator]
+
+  - id: q7
+    question: >
+      How do I create a slim alert without a heading?
+    requires: [api]
+    expected_keywords: [slim, extra_classes, usa-alert--slim]
+
+  - id: q8
+    question: >
+      Can I use a button to navigate the user to a different page in my app?
+    requires: [guidance]
+    # Correct answer is: no — use a link. Buttons are for actions, links for navigation.
+    expected_keywords: [link, navigation, action, href]
+
+  - id: q9
+    question: >
+      Scaffold a Django template for a contact form with fields: full name (text,
+      required), email (email, required), subject (text), and message (textarea,
+      required).
+    requires: [scaffold]
+    expected_keywords: [c-text-input, c-textarea, csrf_token, required, c-form]
+
+  - id: q10
+    question: >
+      What is the difference between the combo-box and select components, and
+      when should I use each one?
+    requires: [guidance]
+    expected_keywords: [combo-box, select, search, filter, autocomplete]
