@@ -93,6 +93,16 @@ class MyForm(USWDSFormMixin, forms.Form):
 | `CheckboxInput` (boolean) | Single `usa-checkbox` |
 | `ClearableFileInput` | `usa-file-input` |
 
+## MCP server
+
+An optional [MCP](https://modelcontextprotocol.io/) server exposes component docs and a form scaffolder to AI assistants. Install with the `mcp` extra and point your MCP client at `django-cotton-uswds-mcp`:
+
+```bash
+pip install "django-cotton-uswds[mcp]"
+```
+
+See [django_cotton_uswds/mcp/README.md](django_cotton_uswds/mcp/README.md) for client configuration and tool details.
+
 ## Demo
 
 A demo project is included to showcase components. Requires [just](https://github.com/casey/just) and [uv](https://github.com/astral-sh/uv).
