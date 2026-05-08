@@ -9,6 +9,8 @@ from urllib.error import URLError
 
 import pytest
 
+pytest.importorskip("mcp", reason="install the 'mcp' extra to run MCP tests")
+
 from django_cotton_uswds.mcp.component_map import (
     COMPONENT_USWDS_SLUGS,
     component_tag,

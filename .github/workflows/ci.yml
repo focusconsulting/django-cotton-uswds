@@ -23,7 +23,7 @@ jobs:
           activate-environment: true
 
       - name: Install dependencies
-        run: uv sync --extra dev --extra test
+        run: uv sync --extra dev --extra test --extra mcp
 
       - name: Ruff check
         run: uv run ruff check .
