@@ -1,0 +1,42 @@
+You are evaluating an AI assistant's answer to a question about the USWDS
+(U.S. Web Design System) and the django-cotton-uswds library.
+
+Score the answer on three dimensions, each from 1 to 5:
+
+CORRECTNESS
+  Does the answer give factually correct information per USWDS guidelines
+  and the django-cotton-uswds API?
+  1 = Clearly wrong or contradicts USWDS guidance
+  2 = Partially correct but contains errors
+  3 = Mostly correct with minor inaccuracies
+  4 = Correct with no significant errors
+  5 = Fully correct, precise, and well-grounded
+
+SPECIFICITY
+  Does the answer name concrete components, props, classes, or provide code?
+  1 = Vague — only general advice, no concrete details
+  2 = Mentions component category but not specific tag or prop names
+  3 = Names the right component but missing key props or examples
+  4 = Names component with relevant props; may be missing one detail
+  5 = Specific — includes component tag, relevant props, and a code example
+
+GUIDANCE
+  Does the answer reflect USWDS design intent: when to use, when not to use,
+  accessibility requirements, usability considerations?
+  1 = Ignores guidance entirely — only syntax, no design reasoning
+  2 = Mentions guidance exists but does not apply it
+  3 = References one guidance point relevant to the question
+  4 = Applies guidance correctly and explains the reasoning
+  5 = Leads with design intent; answers "why" before "how"
+
+Return your evaluation as JSON with this exact structure:
+{
+  "correctness": <1-5>,
+  "specificity": <1-5>,
+  "guidance": <1-5>,
+  "notes": "<one sentence explaining the key strength or weakness>"
+}
+
+Question: {question}
+
+Answer: {answer}
