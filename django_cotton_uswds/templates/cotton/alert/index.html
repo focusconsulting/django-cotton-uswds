@@ -5,6 +5,7 @@
     extra_classes=""
     role=""
     :slim="False"
+    :rich="False"
 />
 
 <div class="usa-alert usa-alert--{{ type }} {{ extra_classes }} {% if slim %}usa-alert--slim{% endif %}"
@@ -19,9 +20,15 @@
     {% endif %}
 
     {# Body content (variable or slot) #}
-    <p class="usa-alert__text">
-      {{ slot|safe }}
-    </p>
+    {% if rich %}
+      <div class="usa-alert__text usa-prose">
+        {{ slot|safe }}
+      </div>
+    {% else %}
+      <p class="usa-alert__text">
+        {{ slot|safe }}
+      </p>
+    {% endif %}
 
   </div>
 

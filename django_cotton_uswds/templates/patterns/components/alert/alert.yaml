@@ -49,3 +49,17 @@ context:
       role: ""
       extra_classes: "usa-alert--no-icon"
       content: 'No icon example'
+
+    - title: "Rich content alert"
+      type: "info"
+      heading: "Rich content status"
+      role: ""
+      extra_classes: ""
+      rich: True
+      content: |
+        <p>Lorem ipsum dolor sit amet, <a class="usa-link" href="javascript:void(0);">consectetur adipiscing</a> elit.</p>
+        <ul>
+          <li>First supporting detail</li>
+          <li>Second supporting detail</li>
+        </ul>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
