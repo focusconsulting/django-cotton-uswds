@@ -7,11 +7,12 @@
     <div class="component-variant">
         <h2 class="variant-title">{{ variant.title }}</h2>
         
-        <c-alert 
+        <c-alert
             type="{{ variant.type }}"
             heading="{{ variant.heading }}"
             role="{{ variant.role }}"
-            extra_classes="{{ variant.extra_classes }}">
+            extra_classes="{{ variant.extra_classes }}"
+            :rich="{{ variant.rich|default:'False' }}">
             {{ variant.content|safe }}
         </c-alert>
     </div>

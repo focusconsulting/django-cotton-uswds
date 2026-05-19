@@ -127,6 +127,7 @@ def test_get_component_returns_local_docs():
     assert "Props" in result
     assert "type" in result
     assert "heading" in result
+    assert ":rich" in result
 
 
 def test_get_component_unknown():
