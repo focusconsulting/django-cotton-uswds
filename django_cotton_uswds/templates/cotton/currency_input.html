@@ -5,6 +5,7 @@
     value=""
     label=""
     hint=""
+    aria_describedby=""
     error=""
     success=""
     disabled=""
@@ -13,7 +14,7 @@
     width=""
     inputmode="numeric"
 />
-  
+
 <c-input-group>
     <c-input-prefix>$</c-input-prefix>
     <c-text-input
@@ -22,6 +23,7 @@
         type="{{ type}}"
         value="{{ value }}"
         hint="{{ hint }}"
+        {% if aria_describedby %}aria-describedby="{{ aria_describedby }}"{% endif %}
         error="{{ error }}"
         success="{{ success }}"
         disabled="{{ disabled }}"

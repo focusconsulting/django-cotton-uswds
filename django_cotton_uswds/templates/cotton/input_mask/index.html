@@ -5,6 +5,7 @@
     readonly=""
     required=""
     width=""
+    hint=""
     aria_describedby=""
     value=""
     placeholder=""
@@ -21,7 +22,8 @@
   {% if pattern %}pattern="{{ pattern }}"{% endif %}
   {% if inputmode %}inputmode="{{ inputmode }}"{% endif %}
   {% if charset %}data-charset="{{ charset }}"{% endif %}
-  {% if aria_describedby %}aria-describedby="{{ aria_describedby }}"{% endif %}
+  {% if error %}aria-describedby="{{ id }}-error-message{% if hint %} {{ id }}-hint{% endif %}{% if aria_describedby %} {{ aria_describedby }}{% endif %}"
+  {% elif hint or aria_describedby %}aria-describedby="{% if hint %}{{ id }}-hint{% endif %}{% if aria_describedby %} {{ aria_describedby }}{% endif %}"{% endif %}
   {% if disabled %}disabled{% endif %}
   {% if readonly %}readonly{% endif %}
   {% if required %}required{% endif %}
