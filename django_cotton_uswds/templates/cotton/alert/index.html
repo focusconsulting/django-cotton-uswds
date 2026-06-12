@@ -1,6 +1,7 @@
 <c-vars
     type="info"
     heading=""
+    heading_level="4"
     actions=""
     extra_classes=""
     role=""
@@ -16,7 +17,7 @@
 
     {# Optional heading #}
     {% if heading %}
-      <h4 class="usa-alert__heading">{{ heading }}</h4>
+      <h{{ heading_level }} class="usa-alert__heading">{{ heading }}</h{{ heading_level }}>
     {% endif %}
 
     {# Body content (variable or slot) #}

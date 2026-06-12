@@ -1,12 +1,13 @@
 <c-vars
     heading_class="usa-accordion__heading"
+    heading_level="4"
     :is_expanded="False"
     control_id=""
     content_class="usa-accordion__content usa-prose"
     button_class="usa-accordion__button"
 />
 
-<h4 class="{{ heading_class }}">
+<h{{ heading_level }} class="{{ heading_class }}">
   <button
     type="button"
     class="{{ button_class }}"
@@ -15,7 +16,7 @@
   >
     {% if heading %}{{ heading }}{% endif %}
   </button>
-</h4>
+</h{{ heading_level }}>
 <div id="{{ control_id }}" class="{{ content_class }}">
     {{ slot }}
 </div>

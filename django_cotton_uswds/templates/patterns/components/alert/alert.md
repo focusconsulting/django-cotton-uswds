@@ -8,6 +8,7 @@ A contextual notification that informs users of a status change or action they n
 | -------------- | ------- | ------------------------------------------------------------------------------------------------- |
 | `type`         | `info`  | Alert type: `info`, `warning`, `success`, `error`, or `emergency`                                |
 | `heading`      |         | Optional heading text displayed above the body content                                            |
+| `heading_level`| `4`     | Heading element level (`2`–`6`) for the heading; set it to match the surrounding page hierarchy so screen readers don't encounter a skipped level. Defaults to `4` (`<h4>`) |
 | `role`         |         | ARIA role override; automatically set to `alert` for `error` and `emergency` types               |
 | `extra_classes`|         | Additional CSS classes (e.g., `usa-alert--no-icon`)                                              |
 | `:slim`        | `False` | Renders the compact slim variant (adds `usa-alert--slim`)                                        |

@@ -16,6 +16,7 @@ A vertically stacked list of headings that reveal or hide associated sections of
 | Prop            | Default                                | Description                                       |
 | --------------- | -------------------------------------- | ------------------------------------------------- |
 | `heading`       |                                        | The heading text displayed in the accordion button |
+| `heading_level` | `4`                                    | Heading element level (`2`–`6`) wrapping the button; set it to match the surrounding page hierarchy so screen readers don't encounter a skipped level. Defaults to `4` (`<h4>`) |
 | `control_id`    |                                        | Unique ID linking the button to its content panel  |
 | `is_expanded`   | `False`                                | Whether the panel is open on initial render        |
 | `heading_class` | `usa-accordion__heading`               | CSS class for the heading element                  |
