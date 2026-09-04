@@ -2,10 +2,11 @@
     heading=""
     heading_tag="h4"
     heading_classes=""
+    sr_prefix=""
     extra_classes=""
 />
 
-<li class="usa-process-list__item {{ extra_classes }}">
-  <{{ heading_tag }} class="usa-process-list__heading {{ heading_classes }}">{{ heading }}</{{ heading_tag }}>
+<li class="usa-process-list__item {{ extra_classes }}" {{ attrs }}>
+  <{{ heading_tag }} class="usa-process-list__heading {{ heading_classes }}">{% if sr_prefix %}<span class="usa-sr-only">{{ sr_prefix }}</span>{% endif %}{{ heading }}</{{ heading_tag }}>
   {{ slot }}
 </li>
