@@ -13,7 +13,7 @@
                 heading="{{ item.heading }}"
                 heading_tag="{{ item.heading_tag|default:'h4' }}"
                 heading_classes="{{ item.heading_classes }}"
-                sr_prefix="{{ item.sr_prefix }}"
+                screen_reader_text="{{ item.screen_reader_text }}"
                 extra_classes="{{ item.extra_classes }}"
             >
                 {% if item.content %}<p class="{{ item.content_classes }}">{{ item.content }}</p>{% endif %}

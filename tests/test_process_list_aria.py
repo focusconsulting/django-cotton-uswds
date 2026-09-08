@@ -2,9 +2,9 @@
 Tests for the process list accessibility props.
 
 ``c-process_list`` passes undeclared attributes through to its ``<ol>`` so the
-list can carry an accessible name, and ``c-process_list.item`` accepts an
-``sr_prefix`` that composes into the heading's accessible name (rather than
-replacing it, the way an ``aria-label`` would).
+list can carry an accessible name, and ``c-process_list.item`` accepts a
+``screen_reader_text`` that composes into the heading's accessible name
+(rather than replacing it, the way an ``aria-label`` would).
 """
 
 from django.template.loader import render_to_string
@@ -29,8 +29,8 @@ class TestProcessListAttrsPassthrough:
         assert 'data-step="1"' in html
 
 
-class TestProcessListSrPrefix:
-    def test_sr_prefix_renders_inside_heading_before_the_text(self):
+class TestProcessListScreenReaderText:
+    def test_screen_reader_text_renders_inside_heading_before_the_text(self):
         html = render_to_string("process_list_aria.html")
         assert (
             '<h4 class="usa-process-list__heading ">'

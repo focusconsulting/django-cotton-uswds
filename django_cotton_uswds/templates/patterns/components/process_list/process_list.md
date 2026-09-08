@@ -16,19 +16,19 @@ The wrapper `<ol>`. Any undeclared attribute is passed straight through to the
 
 ### `c-process_list.item`
 
-| Prop              | Default | Description                                                      |
-| ----------------- | ------- | ---------------------------------------------------------------- |
-| `heading`         |         | The heading text for the step                                    |
-| `heading_tag`     | `h4`    | HTML tag for heading (`h4`, `p`, etc.)                           |
-| `heading_classes` |         | Additional CSS classes for the heading (e.g., `font-sans-xl`)    |
-| `sr_prefix`       |         | Screen-reader-only text rendered inside the heading, before `heading` (e.g., `Step 1 of 3: `) |
-| `extra_classes`   |         | Additional CSS classes for the list item (e.g., `padding-bottom-4`) |
+| Prop                 | Default | Description                                                                                  |
+| -------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| `heading`            |         | The heading text for the step                                                                |
+| `heading_tag`        | `h4`    | HTML tag for heading (`h4`, `p`, etc.)                                                       |
+| `heading_classes`    |         | Additional CSS classes for the heading (e.g., `font-sans-xl`)                                |
+| `screen_reader_text` |         | Screen-reader-only text rendered inside the heading, before `heading` (e.g., `Step 1 of 3: `) |
+| `extra_classes`      |         | Additional CSS classes for the list item (e.g., `padding-bottom-4`)                          |
 
 Undeclared attributes are passed through to the `<li>` element.
 
-`sr_prefix` renders as a `usa-sr-only` span inside the heading element, so it
-composes into the heading's accessible name rather than replacing it: sighted
-users see `Start a process`, screen reader users hear
+`screen_reader_text` renders as a `usa-sr-only` span inside the heading
+element, so it composes into the heading's accessible name rather than
+replacing it: sighted users see `Start a process`, screen reader users hear
 `Step 1 of 3: Start a process`.
 
 ## Example Usage
@@ -111,13 +111,13 @@ users see `Start a process`, screen reader users hear
 
 ```django
 <c-process_list aria-label="Process steps">
-    <c-process_list.item heading="Start a process" sr_prefix="Step 1 of 3: ">
+    <c-process_list.item heading="Start a process" screen_reader_text="Step 1 of 3: ">
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
     </c-process_list.item>
-    <c-process_list.item heading="Proceed to the second step" sr_prefix="Step 2 of 3: ">
+    <c-process_list.item heading="Proceed to the second step" screen_reader_text="Step 2 of 3: ">
         <p>Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum.</p>
     </c-process_list.item>
-    <c-process_list.item heading="Complete the step-by-step process" sr_prefix="Step 3 of 3: ">
+    <c-process_list.item heading="Complete the step-by-step process" screen_reader_text="Step 3 of 3: ">
         <p>Aliquam erat volutpat. Sed quis velit.</p>
     </c-process_list.item>
 </c-process_list>
