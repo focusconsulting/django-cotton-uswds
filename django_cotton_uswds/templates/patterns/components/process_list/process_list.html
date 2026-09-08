@@ -7,12 +7,13 @@
     <div class="component-variant">
         <h2 class="variant-title">{{ variant.title }}</h2>
 
-        <c-process_list>
+        <c-process_list :attrs="variant.wrapper_attrs">
             {% for item in variant.items %}
             <c-process_list.item 
                 heading="{{ item.heading }}"
                 heading_tag="{{ item.heading_tag|default:'h4' }}"
                 heading_classes="{{ item.heading_classes }}"
+                screen_reader_text="{{ item.screen_reader_text }}"
                 extra_classes="{{ item.extra_classes }}"
             >
                 {% if item.content %}<p class="{{ item.content_classes }}">{{ item.content }}</p>{% endif %}

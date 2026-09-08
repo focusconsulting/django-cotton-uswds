@@ -2,10 +2,11 @@
     heading=""
     heading_tag="h4"
     heading_classes=""
+    screen_reader_text=""
     extra_classes=""
 />
 
-<li class="usa-process-list__item {{ extra_classes }}">
-  <{{ heading_tag }} class="usa-process-list__heading {{ heading_classes }}">{{ heading }}</{{ heading_tag }}>
+<li class="usa-process-list__item {{ extra_classes }}" {{ attrs }}>
+  <{{ heading_tag }} class="usa-process-list__heading {{ heading_classes }}">{% if screen_reader_text %}<span class="usa-sr-only">{{ screen_reader_text }}</span>{% endif %}{{ heading }}</{{ heading_tag }}>
   {{ slot }}
 </li>

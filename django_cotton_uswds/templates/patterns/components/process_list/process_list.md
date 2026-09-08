@@ -6,16 +6,30 @@ A process list displays a series of steps or stages in a process, helping users 
 
 ### `c-process_list`
 
-The main wrapper component. No props required.
+The wrapper `<ol>`. Any undeclared attribute is passed straight through to the
+`<ol>` element, so an accessible name can be set with `aria-label` (or
+`aria-labelledby` pointing at a visible heading).
+
+| Prop            | Default | Description                                                  |
+| --------------- | ------- | ------------------------------------------------------------ |
+| `extra_classes` |         | Additional CSS classes for the list (e.g., `margin-top-0`)   |
 
 ### `c-process_list.item`
 
-| Prop              | Default | Description                                                      |
-| ----------------- | ------- | ---------------------------------------------------------------- |
-| `heading`         |         | The heading text for the step                                    |
-| `heading_tag`     | `h4`    | HTML tag for heading (`h4`, `p`, etc.)                           |
-| `heading_classes` |         | Additional CSS classes for the heading (e.g., `font-sans-xl`)    |
-| `extra_classes`   |         | Additional CSS classes for the list item (e.g., `padding-bottom-4`) |
+| Prop                 | Default | Description                                                                                  |
+| -------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| `heading`            |         | The heading text for the step                                                                |
+| `heading_tag`        | `h4`    | HTML tag for heading (`h4`, `p`, etc.)                                                       |
+| `heading_classes`    |         | Additional CSS classes for the heading (e.g., `font-sans-xl`)                                |
+| `screen_reader_text` |         | Screen-reader-only text rendered inside the heading, before `heading` (e.g., `Step 1 of 3: `) |
+| `extra_classes`      |         | Additional CSS classes for the list item (e.g., `padding-bottom-4`)                          |
+
+Undeclared attributes are passed through to the `<li>` element.
+
+`screen_reader_text` renders as a `usa-sr-only` span inside the heading
+element, so it composes into the heading's accessible name rather than
+replacing it: sighted users see `Start a process`, screen reader users hear
+`Step 1 of 3: Start a process`.
 
 ## Example Usage
 
@@ -89,6 +103,22 @@ The main wrapper component. No props required.
         <p class="font-sans-lg margin-top-1 text-light">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         </p>
+    </c-process_list.item>
+</c-process_list>
+```
+
+### Labelled List With Screen Reader Step Prefixes
+
+```django
+<c-process_list aria-label="Process steps">
+    <c-process_list.item heading="Start a process" screen_reader_text="Step 1 of 3: ">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    </c-process_list.item>
+    <c-process_list.item heading="Proceed to the second step" screen_reader_text="Step 2 of 3: ">
+        <p>Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum.</p>
+    </c-process_list.item>
+    <c-process_list.item heading="Complete the step-by-step process" screen_reader_text="Step 3 of 3: ">
+        <p>Aliquam erat volutpat. Sed quis velit.</p>
     </c-process_list.item>
 </c-process_list>
 ```
