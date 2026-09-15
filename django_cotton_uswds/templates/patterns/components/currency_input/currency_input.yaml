@@ -1,1 +1,7 @@
 name: Currency Input
+context:
+  variants:
+  - name: Default 
+    aria_describedby: ""
+  - name: With aria_describedby
+    aria_describedby: "aria-describedby-value"

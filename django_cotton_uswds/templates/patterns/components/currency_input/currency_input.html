@@ -1,3 +1,13 @@
 
-<c-label id="{{ variant.id }}" label="Total Amount" />
-<c-currency-input value="75.00" />
+<div class="component-variants">
+    <h1>Currency Input Component</h1>
+    
+    {% for variant in variants %}
+    <div class="component-variant">
+        <h2 class="variant-title">{{ variant.name }}</h2>
+        
+        <c-label id="{{ variant.id }}" label="Total Amount" />
+        <c-currency-input value="75.00" aria_describedby="{{ variant.aria_describedby}}" />
+    </div>
+    {% endfor %}
+</div>
