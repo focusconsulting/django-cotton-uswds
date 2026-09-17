@@ -421,6 +421,34 @@ class TestGlobalFormRendererSetting:
         assert "usa-input" in html
 
 
+class TestPackageRootImports:
+    def test_uswds_form_mixin_importable_from_package_root(self):
+        from django_cotton_uswds import USWDSFormMixin  # noqa: F401
+
+    def test_uswds_form_renderer_importable_from_package_root(self):
+        from django_cotton_uswds import USWDSFormRenderer  # noqa: F401
+
+    def test_all_exports_both_names(self):
+        import django_cotton_uswds
+
+        assert "USWDSFormMixin" in django_cotton_uswds.__all__
+        assert "USWDSFormRenderer" in django_cotton_uswds.__all__
+
+    def test_short_form_renderer_setting_activates_uswds_rendering(self, settings):
+        settings.FORM_RENDERER = "django_cotton_uswds.USWDSFormRenderer"
+
+        form = SimpleForm()
+        html = form.render()
+
+        assert "usa-form-group" in html
+        assert "usa-label" in html
+        assert "usa-input" in html
+
+    def test_deep_import_paths_still_work(self):
+        from django_cotton_uswds.mixins import USWDSFormMixin  # noqa: F401
+        from django_cotton_uswds.renderer import USWDSFormRenderer  # noqa: F401
+
+
 class TestUSWDSFormMixin:
     def test_mixin_renders_uswds_structure(self):
         from django_cotton_uswds.mixins import USWDSFormMixin
